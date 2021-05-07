@@ -45,10 +45,23 @@ public class FindingController implements Initializable {
 
     }
 
-    public void showVideo() throws Exception {
-        GUI.MediaDemo media=new MediaDemo();
+    public void showVideo1() throws Exception {
+        GUI.Media1 media=new Media1();
         media.showWindow();
+    }
 
+    public void showVideo2() throws Exception {
+        GUI.Media2 media=new Media2();
+        media.showWindow();
+    }
 
+    public void showVideo3() throws Exception {
+        GUI.Media3 media=new Media3();
+        media.showWindow();
+    }
+
+    public void showVideo4() throws Exception {
+        GUI.Media4 media=new Media4();
+        media.showWindow();
     }
 }
