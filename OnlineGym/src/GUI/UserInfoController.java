@@ -61,6 +61,7 @@ public class UserInfoController implements Initializable {
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
+        // TODO需要改用户对应的str
         String str = "src/data/user1.json";
         User user = new GetJSON().createUser(str);
         id.setText(String.valueOf(user.id));

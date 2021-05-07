@@ -4,8 +4,11 @@ import data_handle.GetJSON;
 import org.json.JSONObject;
 
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Collections;
+import java.util.List;
 
 public class User extends People {
     public int[] classID;
@@ -22,9 +25,26 @@ public class User extends People {
         this.coach = coach;
     }
 
-    public void updateInfo(User user) {
-        String filename = "src/data/user1.json";
-        createJSON(filename, user);
+    public void like(String fileName, int videoID) {
+        List<Integer> list = new GetJSON().createLike(fileName, id);
+        if (list.contains(videoID)) return;
+
+        list.add(videoID);
+        Collections.sort(list);
+
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("id",id);
+        jsonObject.put("video", list.toArray());
+        createJSON(fileName, jsonObject.toString());
+    }
+
+    public void showLike() {
+
+    }
+
+    public void updateInfo(String filename, User user) {
+        String context = class2JSON(user);
+        createJSON(filename, context);
     }
 
     // change class to .json file
@@ -43,12 +63,11 @@ public class User extends People {
     }
 
     // create a new JSON file with a Class
-    public void createJSON(String filename, User user) {
-        GetJSON getJSON = new GetJSON();
+    public void createJSON(String filename, String context) {
         BufferedWriter bw = null;
         try {
             bw = new BufferedWriter(new FileWriter(filename));// 输出新的json文件
-            bw.write(class2JSON(user));
+            bw.write(context);
             bw.flush();
 
         } catch (Exception e) {
