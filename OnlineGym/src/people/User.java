@@ -25,7 +25,8 @@ public class User extends People {
         this.coach = coach;
     }
 
-    public void like(String fileName, int videoID) {
+    public void like(int videoID) {
+        String fileName = "src/data/like_data/like" + id + ".json";
         List<Integer> list = new GetJSON().createLike(fileName, id);
         if (list.contains(videoID)) return;
 
@@ -38,8 +39,56 @@ public class User extends People {
         createJSON(fileName, jsonObject.toString());
     }
 
-    public void showLike() {
+    public void removeLike(int videoID) {
+        String fileName = "src/data/like_data/like" + id + ".json";
+        List<Integer> list = new GetJSON().createLike(fileName, id);
 
+        list.remove((Object)videoID);
+        Collections.sort(list);
+
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("id",id);
+        jsonObject.put("video", list.toArray());
+        createJSON(fileName, jsonObject.toString());
+    }
+
+    public int[] showLike() {
+        String filename = "src/data/like_data/like" + id + ".json";
+        String jsonStr = new GetJSON().gotStr(filename);
+        JSONObject json = new JSONObject(jsonStr);
+        int len = json.getJSONArray("video").length();
+        int[] res = new int[len];
+        for (int i = 0; i < len; i++) {
+            res[i] = json.getJSONArray("video").getInt(i);
+        }
+        return res;
+
+    }
+
+    public void history(int videoID) {
+        String fileName = "src/data/history_data/history" + id + ".json";
+        List<Integer> list = new GetJSON().createLike(fileName, id);
+        if (list.contains(videoID)) return;
+
+        list.add(videoID);
+        Collections.sort(list);
+
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("id",id);
+        jsonObject.put("video", list.toArray());
+        createJSON(fileName, jsonObject.toString());
+    }
+
+    public int[] showHistory() {
+        String filename = "src/data/history_data/history" + id + ".json";
+        String jsonStr = new GetJSON().gotStr(filename);
+        JSONObject json = new JSONObject(jsonStr);
+        int len = json.getJSONArray("video").length();
+        int[] res = new int[len];
+        for (int i = 0; i < len; i++) {
+            res[i] = json.getJSONArray("video").getInt(i);
+        }
+        return res;
     }
 
     public void updateInfo(String filename, User user) {

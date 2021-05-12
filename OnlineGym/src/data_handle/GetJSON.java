@@ -64,6 +64,7 @@ public class GetJSON {
         return list;
     }
 
+
     // Create Trainer Object
     public Trainer createTrainer(String fileName) {
         String jsonStr = gotStr(fileName);
