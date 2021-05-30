@@ -47,17 +47,19 @@ public class MainPage extends Application {
             }
             //OPen the server开启服务器
             while(true){
-                Socket client= null;	//Accept the client and wait for the client to arrive(接受客户端，等待客户端到来)
-                try {
-                    client = server.accept();
-                } catch (IOException e) {
-                    e.printStackTrace();
+                if (util.GLOBALID != 0) {
+                    Socket client= null;	//Accept the client and wait for the client to arrive(接受客户端，等待客户端到来)
+                    try {
+                        client = server.accept();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    System.out.println("The number of online member：" + clients.size());
+                    //Get what the client said and distribute a thread(获取客户端说的话,派发一个线程)
+                    ChatServerThread c = new ChatServerThread(client);
+                    clients.add(client);
+                    c.start();
                 }
-                System.out.println("The number of online member：" + clients.size());
-                //Get what the client said and distribute a thread(获取客户端说的话,派发一个线程)
-                ChatServerThread c = new ChatServerThread(client);
-                clients.add(client);
-                c.start();
             }
         }
     }

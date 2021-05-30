@@ -1,5 +1,6 @@
 package people;
 
+import data_handle.CreateJSON;
 import data_handle.GetJSON;
 import org.json.JSONObject;
 
@@ -42,7 +43,7 @@ public class User extends People {
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("id",id);
         jsonObject.put("video", list.toArray());
-        createJSON(fileName, jsonObject.toString());
+        new CreateJSON().createJSON(fileName, jsonObject.toString());
     }
 
 
@@ -56,7 +57,7 @@ public class User extends People {
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("id",id);
         jsonObject.put("video", list.toArray());
-        createJSON(fileName, jsonObject.toString());
+        new CreateJSON().createJSON(fileName, jsonObject.toString());
     }
 
     public int[] showLike() {
@@ -83,7 +84,7 @@ public class User extends People {
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("id",id);
         jsonObject.put("video", list.toArray());
-        createJSON(fileName, jsonObject.toString());
+        new CreateJSON().createJSON(fileName, jsonObject.toString());
     }
 
     public int[] showHistory() {
@@ -100,7 +101,7 @@ public class User extends People {
 
     public void updateInfo(String filename, User user) {
         String context = class2JSON(user);
-        createJSON(filename, context);
+        new CreateJSON().createJSON(filename, context);
     }
 
     // change class to .json file
@@ -117,27 +118,5 @@ public class User extends People {
         jsonObject.put("coach",user.coach);
         return jsonObject.toString();
     }
-
-    // create a new JSON file with a Class
-//    public void createJSON(String filename, String context) {
-//        BufferedWriter bw = null;
-//        try {
-//            bw = new BufferedWriter(new FileWriter(filename));// 输出新的json文件
-//            bw.write(context);
-//            bw.flush();
-//
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        } finally {
-//            try {
-//                if (bw != null) {
-//                    bw.close();
-//                }
-//            } catch (IOException e) {
-//                e.printStackTrace();
-//            }
-//        }
-//    }
-
 
 }

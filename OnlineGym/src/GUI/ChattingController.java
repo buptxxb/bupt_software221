@@ -7,6 +7,8 @@ import javafx.fxml.Initializable;
 import java.net.URL;
 import java.util.ResourceBundle;
 import com.chat.ChatUI;
+import javafx.scene.control.Alert;
+import util.util;
 
 
 public class ChattingController implements Initializable {
@@ -43,6 +45,14 @@ public class ChattingController implements Initializable {
 
     }
     public void showChat1() throws Exception {
+        if (util.GLOBALID == 0) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Prompt");
+            alert.setHeaderText(null);
+            alert.setContentText("please login first");
+            alert.showAndWait();
+            return;
+        }
         ChatUI chatUI=new ChatUI();
         chatUI.Show();
     }

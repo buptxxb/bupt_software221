@@ -1,7 +1,7 @@
 package people;
 
-public class Course {
+public class Class {
     public int id;
+    public String coach;
     public String duration;
-    public String link;
 }
