@@ -29,7 +29,8 @@ public class People {
 
     // update user's Information
     public void updateInfo(String filename, People people) {
-        createJSON(filename, people);
+        String context = class2JSON(people);
+        createJSON(filename, context);
     }
 
     // change class to .json file
@@ -46,13 +47,11 @@ public class People {
     }
 
     // create a new JSON file with a Class
-    public void createJSON(String filename,People people) {
-        GetJSON getJSON = new GetJSON();
+    public void createJSON(String filename, String context) {
         BufferedWriter bw = null;
         try {
-            String ans = getJSON.gotStr(filename);
-            bw = new BufferedWriter(new FileWriter("src/data/user2.json"));// 输出新的json文件
-            bw.write(class2JSON(people));
+            bw = new BufferedWriter(new FileWriter(filename));// 输出新的json文件
+            bw.write(context);
             bw.flush();
 
         } catch (Exception e) {

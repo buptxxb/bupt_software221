@@ -99,7 +99,6 @@ public class GetJSON {
     public User createUser(String fileName) {
         String jsonStr = gotStr(fileName);
         JSONObject json = new JSONObject(jsonStr);
-        JSONArray jsonArray = new JSONArray();
         int len = json.getJSONArray("classID").length();
         int[] tmp = new int[len];
         for (int i = 0; i < len; i++) {

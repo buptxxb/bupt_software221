@@ -56,6 +56,7 @@ public class LoginController implements Initializable {
         String password = obj.getString("Password");
         String accNo = obj.getString("AccNo");
         util.GLOBALID = obj.getInt("ID");
+        util.GLOBALNAME = obj.getString("AccNo");
 
 
         if ((accNo).equals(AccNo.getText()) && ((password).equals(Password.getText()))) {

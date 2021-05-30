@@ -7,8 +7,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.fxml.JavaFXBuilderFactory;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import util.util;
 
 import java.io.InputStream;
 import java.util.logging.Level;
@@ -99,6 +101,14 @@ public class MainPage extends Application {
     }
 
     public void gotoUserInfo(){
+        if (util.GLOBALID == 0) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Prompt");
+            alert.setHeaderText(null);
+            alert.setContentText("please login first");
+            alert.showAndWait();
+            return;
+        }
         try{
             UserInfoController userinfo=(UserInfoController) changeScene("UserInfo.fxml");
             userinfo.setApp(this);
@@ -305,7 +315,7 @@ class ChatServerThread extends Thread{
 
     public ChatServerThread(Socket socket) {
 //        ip = socket.getInetAddress().getHostAddress();
-        ip="lzh";
+        ip = "user" + util.GLOBALID;
         this.socket = socket;
     }
     @Override
