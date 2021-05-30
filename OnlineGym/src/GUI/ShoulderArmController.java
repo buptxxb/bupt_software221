@@ -58,22 +58,26 @@ public class ShoulderArmController implements Initializable {
     }
 
     public void showVideo1() throws Exception {
-        Media1 media=new Media1();
+        Media media=new Media();
+        media.SetVideo("20_Days_Arm_Training" );
         media.showWindow();
     }
 
     public void showVideo2() throws Exception {
-        Media2 media=new Media2();
+        Media media=new Media();
+        media.SetVideo("Forearm_Training" );
         media.showWindow();
     }
 
     public void showVideo3() throws Exception {
-        Media3 media=new Media3();
+        Media media=new Media();
+        media.SetVideo("How_to_Train_Upper_Arm" );
         media.showWindow();
     }
 
     public void showVideo4() throws Exception {
-        Media4 media=new Media4();
+        Media media=new Media();
+        media.SetVideo("Biceps_Bending_Training" );
         media.showWindow();
     }
 

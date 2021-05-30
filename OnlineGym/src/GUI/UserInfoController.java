@@ -73,10 +73,6 @@ public class UserInfoController implements Initializable {
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
         // TODO需要改用户对应的str
-        if(util.GLOBALID == 0) {
-            System.out.println("Please login");
-            return;
-        }
         String str = "src/data/user" + util.GLOBALID + ".json";
         User user = new GetJSON().createUser(str);
         id.setText(String.valueOf(user.id));
