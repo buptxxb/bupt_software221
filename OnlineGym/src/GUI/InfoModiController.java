@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TextField;
 import people.User;
+import util.util;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -28,7 +29,7 @@ public class InfoModiController implements Initializable {
 
     @FXML
     public void Confirm(ActionEvent event) {
-        String str = "src/data/user1.json";
+        String str = "src/data/user" + util.GLOBALID + ".json";
         User user = new GetJSON().createUser(str);
         user.id = id.getText().isEmpty() ? user.id : Integer.parseInt(id.getText());
         user.name = name.getText().isEmpty() ? user.name : name.getText();

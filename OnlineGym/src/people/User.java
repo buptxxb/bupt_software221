@@ -24,6 +24,11 @@ public class User extends People {
         this.classID = classID;
         this.coach = coach;
     }
+    public User(int id, String name) {
+        this(id, name, 0, "Unknown", "0000-00-00", 0, 0, new int[0], "none");
+
+    }
+
 
 
     public void like(int videoID) {

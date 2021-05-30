@@ -7,12 +7,11 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 
-public class Account extends People{
+public class Account{
     public String AccNo;
     public String Password;
 
     public Account(String AccNo, String Password) {
-
         this.AccNo = AccNo;
         this.Password = Password;
     }
