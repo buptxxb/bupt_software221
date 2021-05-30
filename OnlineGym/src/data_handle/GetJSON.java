@@ -2,10 +2,15 @@ package data_handle;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
+import people.Account;
 import people.Trainer;
 import people.User;
 
 import java.io.*;
+import java.util.Arrays;
+import java.util.Collections;
+
+import java.util.List;
 
 public class GetJSON {
 
@@ -42,12 +47,32 @@ public class GetJSON {
         return jsonStr;
     }
 
+    public List<Integer> createLike(String fileName, int id) {
+        File file = new File(fileName);
+        String context;
+        if (!file.exists()) {
+            try {
+                file.createNewFile();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            context = "{\"id\":"+ id +",\"video\":[]}";
+        } else {
+            context = new GetJSON().gotStr(fileName);
+        }
+        JSONObject json = new JSONObject(context);
+        List<Integer> list = (List<Integer>)(List)json.getJSONArray("video").toList();
+
+        return list;
+    }
+
+
     // Create Trainer Object
     public Trainer createTrainer(String fileName) {
         String jsonStr = gotStr(fileName);
         JSONObject json = new JSONObject(jsonStr);
-        JSONArray jsonArray = new JSONArray();
         int len = json.getJSONArray("classID").length();
+        // TODO 删掉？
         int[] tmp = new int[len];
         for (int i = 0; i < len; i++) {
             tmp[i] =  json.getJSONArray("classID").getInt(i);
@@ -94,5 +119,15 @@ public class GetJSON {
         return user;
     }
 
+    public Account createAccount(String fileName) {
+        String jsonStr = gotStr(fileName);
+        JSONObject json = new JSONObject(jsonStr);
+        JSONArray jsonArray = new JSONArray();
+        Account account = new Account(
+                json.getString("AccNo"),
+                json.getString("Password")
+        );
+        return account;
+    }
 
 }

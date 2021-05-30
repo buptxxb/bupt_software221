@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.RegisterController">
+   <children>
+      <Label layoutX="189.0" layoutY="177.0" text="AccNo" />
+      <Label layoutX="180.0" layoutY="215.0" text="Password" />
+      <PasswordField fx:id="Password" layoutX="246.0" layoutY="211.0" />
+      <TextField fx:id="AccNo" layoutX="246.0" layoutY="173.0" />
+      <Button layoutX="173.0" layoutY="311.0" mnemonicParsing="false" onAction="#Return" text="Return" />
+      <Button layoutX="391.0" layoutY="311.0" mnemonicParsing="false" onAction="#Register" text="Register" />
+      <ImageView fitHeight="113.0" fitWidth="481.0" layoutX="64.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true" />
+      <TextField fx:id="ID" layoutX="246.0" layoutY="250.0" prefHeight="23.0" prefWidth="161.0" />
+      <Label layoutX="202.0" layoutY="254.0" text="ID" />
+      <Button layoutX="44.0" layoutY="22.0" mnemonicParsing="false" onAction="#Finding" text="Main Page" />
+   </children>
+</AnchorPane>

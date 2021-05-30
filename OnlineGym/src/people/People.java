@@ -28,8 +28,7 @@ public class People {
     }
 
     // update user's Information
-    public void updateInfo(People people) {
-        String filename = "src/data/user1.json";
+    public void updateInfo(String filename, People people) {
         createJSON(filename, people);
     }
 

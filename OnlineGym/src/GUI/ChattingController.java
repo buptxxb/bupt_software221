@@ -6,6 +6,8 @@ import javafx.fxml.Initializable;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import com.chat.ChatUI;
+
 
 public class ChattingController implements Initializable {
 
@@ -39,6 +41,10 @@ public class ChattingController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
+    }
+    public void showChat1() throws Exception {
+        ChatUI chatUI=new ChatUI();
+        chatUI.Show();
     }
 
 }

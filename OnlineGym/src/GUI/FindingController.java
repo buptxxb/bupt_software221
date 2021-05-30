@@ -40,28 +40,45 @@ public class FindingController implements Initializable {
         application.userUserInfo();
     }
 
+    @FXML
+    public void Login(ActionEvent event) {
+        application.accountLogin();
+    }
+
+    @FXML
+    public void Search(ActionEvent event) {
+        application.userSearch();
+    }
+
+    @FXML
+    public void Chest(ActionEvent event) {
+        application.userChest();
+    }
+    @FXML
+    public void ShoulderArm(ActionEvent event) {
+        application.userShoulderArm();
+    }
+    @FXML
+    public void Back(ActionEvent event) {
+        application.userBack();
+    }
+    @FXML
+    public void Hip(ActionEvent event) {
+        application.userHip();
+    }
+    @FXML
+    public void Leg(ActionEvent event) {
+        application.userLeg();
+    }
+    @FXML
+    public void Other(ActionEvent event) {
+        application.userOther();
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
     }
 
-    public void showVideo1() throws Exception {
-        GUI.Media1 media=new Media1();
-        media.showWindow();
-    }
 
-    public void showVideo2() throws Exception {
-        GUI.Media2 media=new Media2();
-        media.showWindow();
-    }
-
-    public void showVideo3() throws Exception {
-        GUI.Media3 media=new Media3();
-        media.showWindow();
-    }
-
-    public void showVideo4() throws Exception {
-        GUI.Media4 media=new Media4();
-        media.showWindow();
-    }
 }

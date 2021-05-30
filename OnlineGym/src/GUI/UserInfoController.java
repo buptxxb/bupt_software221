@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import people.User;
+import util.util;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -49,6 +50,16 @@ public class UserInfoController implements Initializable {
     }
 
     @FXML
+    public void Favorite(ActionEvent event) {
+        application.userFavorite();
+    }
+
+    @FXML
+    public void History(ActionEvent event) {
+        application.userHistory();
+    }
+
+    @FXML
     public Label id;
     public Label name;
     public Label age;
@@ -61,7 +72,8 @@ public class UserInfoController implements Initializable {
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
-        String str = "src/data/user1.json";
+        // TODO需要改用户对应的str
+        String str = "src/data/user" + util.GLOBALID + ".json";
         User user = new GetJSON().createUser(str);
         id.setText(String.valueOf(user.id));
         name.setText(String.valueOf(user.name));
