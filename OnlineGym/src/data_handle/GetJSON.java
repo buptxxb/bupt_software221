@@ -7,6 +7,9 @@ import people.Trainer;
 import people.User;
 
 import java.io.*;
+import java.util.Arrays;
+import java.util.Collections;
+
 import java.util.List;
 
 public class GetJSON {
@@ -62,6 +65,7 @@ public class GetJSON {
 
         return list;
     }
+
 
     // Create Trainer Object
     public Trainer createTrainer(String fileName) {
