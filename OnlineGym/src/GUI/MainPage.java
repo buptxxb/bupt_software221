@@ -81,6 +81,99 @@ public class MainPage extends Application {
         }
     }
 
+    public void gotoRegister(){
+        try{
+             RegisterController Register= (RegisterController) changeScene("Register.fxml");
+            Register.setApp(this);
+        } catch (Exception ex){
+            Logger.getLogger(MainPage.class.getName()).log(Level.SEVERE,null,ex);
+        }
+    }
+
+    public void gotoLogin(){
+        try{
+            LoginController Login= (LoginController) changeScene("Login.fxml");
+            Login.setApp(this);
+        } catch (Exception ex){
+            Logger.getLogger(MainPage.class.getName()).log(Level.SEVERE,null,ex);
+        }
+    }
+
+    public void gotoFavorite(){
+        try{
+            FavoriteController Favorite= (FavoriteController) changeScene("Favorite.fxml");
+            Favorite.setApp(this);
+        } catch (Exception ex){
+            Logger.getLogger(MainPage.class.getName()).log(Level.SEVERE,null,ex);
+        }
+    }
+
+    public void gotoHistory(){
+        try{
+            HistoryController History= (HistoryController) changeScene("History.fxml");
+            History.setApp(this);
+        } catch (Exception ex){
+            Logger.getLogger(MainPage.class.getName()).log(Level.SEVERE,null,ex);
+        }
+    }
+
+    public void gotoSearch(){
+        try{
+            SearchController Search= (SearchController) changeScene("Search.fxml");
+            Search.setApp(this);
+        } catch (Exception ex){
+            Logger.getLogger(MainPage.class.getName()).log(Level.SEVERE,null,ex);
+        }
+    }
+    public void gotoChest(){
+        try{
+            ChestController Chest= (ChestController) changeScene("Chest.fxml");
+            Chest.setApp(this);
+        } catch (Exception ex){
+            Logger.getLogger(MainPage.class.getName()).log(Level.SEVERE,null,ex);
+        }
+    }
+    public void gotoShoulderArm(){
+        try{
+            ShoulderArmController ShoulderArm= (ShoulderArmController) changeScene("ShoulderArm.fxml");
+            ShoulderArm.setApp(this);
+        } catch (Exception ex){
+            Logger.getLogger(MainPage.class.getName()).log(Level.SEVERE,null,ex);
+        }
+    }
+    public void gotoBack(){
+        try{
+            BackController Back= (BackController) changeScene("Back.fxml");
+            Back.setApp(this);
+        } catch (Exception ex){
+            Logger.getLogger(MainPage.class.getName()).log(Level.SEVERE,null,ex);
+        }
+    }
+    public void gotoHip(){
+        try{
+            HipController Hip= (HipController) changeScene("Hip.fxml");
+            Hip.setApp(this);
+        } catch (Exception ex){
+            Logger.getLogger(MainPage.class.getName()).log(Level.SEVERE,null,ex);
+        }
+    }
+    public void gotoLeg(){
+        try{
+            LegController Leg= (LegController) changeScene("Leg.fxml");
+            Leg.setApp(this);
+        } catch (Exception ex){
+            Logger.getLogger(MainPage.class.getName()).log(Level.SEVERE,null,ex);
+        }
+    }
+    public void gotoOther(){
+        try{
+            OtherController Other= (OtherController) changeScene("Other.fxml");
+            Other.setApp(this);
+        } catch (Exception ex){
+            Logger.getLogger(MainPage.class.getName()).log(Level.SEVERE,null,ex);
+        }
+    }
+
     public void userFinding(){
         gotoFinding();
     }
@@ -103,6 +196,42 @@ public class MainPage extends Application {
 
     public void userPasswordModi(){
         gotoPasswordModi();
+    }
+
+    public void accountLogin(){gotoLogin();}
+
+    public void accountRegister(){gotoRegister();}
+
+    public void userFavorite(){  gotoFavorite(); }
+
+    public void userHistory(){ gotoHistory(); }
+
+    public void userSearch(){
+        gotoSearch();
+    }
+
+    public void userChest(){
+        gotoChest();
+    }
+
+    public void userShoulderArm(){
+        gotoShoulderArm();
+    }
+
+    public void userBack(){
+        gotoBack();
+    }
+
+    public void userHip(){
+        gotoHip();
+    }
+
+    public void userLeg(){
+        gotoLeg();
+    }
+
+    public void userOther(){
+        gotoOther();
     }
 
     private Initializable changeScene(String fxml)throws Exception{
