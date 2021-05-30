@@ -31,14 +31,13 @@ public class GetJSON {
             jsonStr = sb.toString();
         } catch (IOException e) {
             e.printStackTrace();
-            System.out.println("No such file");
+            System.out.println("Here is a error in getJSON");
         } finally {
             try {
                 reader.close();
                 fileReader.close();
-            } catch (Exception e) {
+            } catch (IOException e) {
                 e.printStackTrace();
-                System.out.println("Please Login First");
             }
 
         }
@@ -95,33 +94,25 @@ public class GetJSON {
     // Create User Object
     public User createUser(String fileName) {
         String jsonStr = gotStr(fileName);
-        JSONObject json = null;
-        int len = 0;
-        try {
-            json = new JSONObject(jsonStr);
-            len = json.getJSONArray("classID").length();
-            int[] tmp = new int[len];
-            for (int i = 0; i < len; i++) {
-                tmp[i] =  json.getJSONArray("classID").getInt(i);
-            }
-            User user = new User(
-                    json.getInt("id"),
-                    json.getString("name"),
-                    json.getInt("age"),
-                    json.getString("gender"),
-                    json.getString("birthday"),
-                    json.getInt("height"),
-                    json.getInt("weight"),
-                    tmp,
-                    json.getString("coach")
-            );
-            return user;
-        } catch (Exception e) {
-            System.out.println("Please Login First");
+        JSONObject json = new JSONObject(jsonStr);
+        JSONArray jsonArray = new JSONArray();
+        int len = json.getJSONArray("classID").length();
+        int[] tmp = new int[len];
+        for (int i = 0; i < len; i++) {
+            tmp[i] =  json.getJSONArray("classID").getInt(i);
         }
-        return null;
-
-
+        User user = new User(
+                json.getInt("id"),
+                json.getString("name"),
+                json.getInt("age"),
+                json.getString("gender"),
+                json.getString("birthday"),
+                json.getInt("height"),
+                json.getInt("weight"),
+                tmp,
+                json.getString("coach")
+        );
+        return user;
     }
 
     public Account createAccount(String fileName) {
