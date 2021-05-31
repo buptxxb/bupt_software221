@@ -2,28 +2,15 @@ package GUI;
 
 import data_handle.GetJSON;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.TableCell;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
-import javafx.scene.control.cell.TextFieldTableCell;
 import org.json.JSONObject;
-import people.User;
-import scheduletable.scheduletable;
-import javafx.scene.control.TableColumn.CellEditEvent;
-import util.util;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class CourseController implements Initializable {
-
+public class CourseController_student implements Initializable {
     private MainPage application;
     @FXML private TextField Sun1;
     @FXML private TextField Sun2;
@@ -76,77 +63,6 @@ public class CourseController implements Initializable {
 
     public void setApp(MainPage application){
         this.application = application;
-    }
-    @FXML
-    public void Update(ActionEvent event) {
-        String str = "src/data/course.json";
-        JSONObject jsonObject = new JSONObject();
-        jsonObject.put("Sun1", Sun1.getText());
-        jsonObject.put("Sun2", Sun2.getText());
-        jsonObject.put("Sun3", Sun3.getText());
-        jsonObject.put("Sun4", Sun4.getText());
-        jsonObject.put("Sun5", Sun5.getText());
-        jsonObject.put("Sun6", Sun6.getText());
-
-        jsonObject.put("Mon1", Mon1.getText());
-        jsonObject.put("Mon2", Mon2.getText());
-        jsonObject.put("Mon3", Mon3.getText());
-        jsonObject.put("Mon4", Mon4.getText());
-        jsonObject.put("Mon5", Mon5.getText());
-        jsonObject.put("Mon6", Mon6.getText());
-
-        jsonObject.put("Tue1", Tue1.getText());
-        jsonObject.put("Tue2", Tue2.getText());
-        jsonObject.put("Tue3", Tue3.getText());
-        jsonObject.put("Tue4", Tue4.getText());
-        jsonObject.put("Tue5", Tue5.getText());
-        jsonObject.put("Tue6", Tue6.getText());
-
-        jsonObject.put("Wed1", Wed1.getText());
-        jsonObject.put("Wed2", Wed2.getText());
-        jsonObject.put("Wed3", Wed3.getText());
-        jsonObject.put("Wed4", Wed4.getText());
-        jsonObject.put("Wed5", Wed5.getText());
-        jsonObject.put("Wed6", Wed6.getText());
-
-        jsonObject.put("Thu1", Thu1.getText());
-        jsonObject.put("Thu2", Thu2.getText());
-        jsonObject.put("Thu3", Thu3.getText());
-        jsonObject.put("Thu4", Thu4.getText());
-        jsonObject.put("Thu5", Thu5.getText());
-        jsonObject.put("Thu6", Thu6.getText());
-
-        jsonObject.put("Fri1", Fri1.getText());
-        jsonObject.put("Fri2", Fri2.getText());
-        jsonObject.put("Fri3", Fri3.getText());
-        jsonObject.put("Fri4", Fri4.getText());
-        jsonObject.put("Fri5", Fri5.getText());
-        jsonObject.put("Fri6", Fri6.getText());
-
-        jsonObject.put("Sat1", Sat1.getText());
-        jsonObject.put("Sat2", Sat2.getText());
-        jsonObject.put("Sat3", Sat3.getText());
-        jsonObject.put("Sat4", Sat4.getText());
-        jsonObject.put("Sat5", Sat5.getText());
-        jsonObject.put("Sat6", Sat6.getText());
-
-        BufferedWriter bw = null;
-        try {
-            bw = new BufferedWriter(new FileWriter(str));// 输出新的json文件
-            bw.write(jsonObject.toString());
-            bw.flush();
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            try {
-                if (bw != null) {
-                    bw.close();
-                }
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
     }
     @FXML
     public void Finding(ActionEvent event) {
@@ -226,3 +142,4 @@ public class CourseController implements Initializable {
         Sat6.setText(String.valueOf(obj.getString("Sat6")));
     }
 }
+

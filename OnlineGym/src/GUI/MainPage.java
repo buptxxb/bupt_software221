@@ -93,6 +93,15 @@ public class MainPage extends Application {
         }
     }
 
+    public void gotoCourse_student(){
+        try{
+            CourseController_student course_student=(CourseController_student) changeScene("Course(student).fxml");
+            course_student.setApp(this);
+        } catch (Exception ex){
+            Logger.getLogger(MainPage.class.getName()).log(Level.SEVERE,null,ex);
+        }
+    }
+
     public void gotoChatting(){
         try{
             ChattingController chatting=(ChattingController) changeScene("Chatting.fxml");
@@ -236,6 +245,10 @@ public class MainPage extends Application {
 
     public void userCourse(){
         gotoCourse();
+    }
+
+    public void userCourse_student(){
+        gotoCourse_student();
     }
 
     public void userChatting(){

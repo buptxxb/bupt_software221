@@ -4,7 +4,7 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.CourseController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.CourseController_student">
     <children>
         <Button layoutX="14.0" layoutY="322.0" mnemonicParsing="false" onAction="#Finding" prefHeight="63.0" prefWidth="110.0" text="Finding" />
         <Button layoutX="168.0" layoutY="322.0" mnemonicParsing="false" onAction="#Course" prefHeight="63.0" prefWidth="110.0" text="Course" />
@@ -86,7 +86,6 @@
         <TextField fx:id="Tue4" layoutX="210.0" layoutY="166.0" prefHeight="23.0" prefWidth="64.0" />
         <TextField fx:id="Tue3" layoutX="210.0" layoutY="143.0" prefHeight="23.0" prefWidth="64.0" />
         <TextField fx:id="Tue2" layoutX="210.0" layoutY="120.0" prefHeight="23.0" prefWidth="64.0" />
-      <Button layoutX="279.0" layoutY="268.0" mnemonicParsing="false" onAction="#Update" text="Update" />
       <ImageView fitHeight="136.0" fitWidth="38.0" layoutX="50.0" layoutY="98.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Schedule/time.jpg" />
