@@ -77,7 +77,7 @@ public class RegisterController implements Initializable {
         }
         User user = new User(Integer.parseInt(ID.getText()), AccNo.getText());
         str = "src/data/user"+ ID.getText() +".json";
-        user.updateInfo(str, user);
+        user.updateInfo(str);
         application.userUserInfo();
     }
 

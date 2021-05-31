@@ -11,12 +11,12 @@
         <Button layoutX="476.0" layoutY="322.0" mnemonicParsing="false" onAction="#UserInfo" prefHeight="63.0" prefWidth="110.0" text="User Info" />
         <TextField layoutX="144.0" layoutY="25.0" prefHeight="26.0" prefWidth="312.0" />
         <Button layoutX="484.0" layoutY="25.0" mnemonicParsing="false" onAction="#Search" prefHeight="26.0" prefWidth="93.0" text="Search" />
-      <Button layoutX="62.0" layoutY="91.0" mnemonicParsing="false" onAction="#Chest" prefHeight="85.0" prefWidth="124.0" style="-fx-background-image:url('/images/chest.jpg'); -fx-background-size: 122px;" />
-      <Button layoutX="238.0" layoutY="91.0" mnemonicParsing="false" onAction="#ShoulderArm" prefHeight="85.0" prefWidth="124.0" style="-fx-background-image:url('/images/shoulderarm.jpg'); -fx-background-size: 120px;" />
-      <Button layoutX="62.0" layoutY="187.0" mnemonicParsing="false" onAction="#Hip" prefHeight="85.0" prefWidth="124.0" style="-fx-background-image:url('/images/hip.jpg'); -fx-background-size: 125px;" />
-      <Button layoutX="238.0" layoutY="187.0" mnemonicParsing="false" onAction="#Leg" prefHeight="85.0" prefWidth="124.0" style="-fx-background-image:url('/images/leg.jpg'); -fx-background-size: 118px;" />
-      <Button layoutX="414.0" layoutY="91.0" mnemonicParsing="false" onAction="#Back" prefHeight="85.0" prefWidth="124.0" style="-fx-background-image:url('/images/back.jpg'); -fx-background-size: 122px;" />
-      <Button layoutX="414.0" layoutY="187.0" mnemonicParsing="false" onAction="#Other" prefHeight="85.0" prefWidth="124.0" style="-fx-background-image:url('/images/other.jpg'); -fx-background-size: 125px;" />
+      <Button layoutX="62.0" layoutY="91.0" mnemonicParsing="false" onAction="#Chest" prefHeight="85.0" prefWidth="124.0" style="-fx-background-image:url('/images/category/chest.jpg'); -fx-background-size: 122px;" />
+      <Button layoutX="238.0" layoutY="91.0" mnemonicParsing="false" onAction="#ShoulderArm" prefHeight="85.0" prefWidth="124.0" style="-fx-background-image:url('/images/category/shoulderarm.jpg'); -fx-background-size: 120px;" />
+      <Button layoutX="62.0" layoutY="187.0" mnemonicParsing="false" onAction="#Hip" prefHeight="85.0" prefWidth="124.0" style="-fx-background-image:url('/images/category/hip.jpg'); -fx-background-size: 125px;" />
+      <Button layoutX="238.0" layoutY="187.0" mnemonicParsing="false" onAction="#Leg" prefHeight="85.0" prefWidth="124.0" style="-fx-background-image:url('/images/category/leg.jpg'); -fx-background-size: 118px;" />
+      <Button layoutX="414.0" layoutY="91.0" mnemonicParsing="false" onAction="#Back" prefHeight="85.0" prefWidth="124.0" style="-fx-background-image:url('/images/category/back.jpg'); -fx-background-size: 122px;" />
+      <Button layoutX="414.0" layoutY="187.0" mnemonicParsing="false" onAction="#Other" prefHeight="85.0" prefWidth="124.0" style="-fx-background-image:url('/images/category/other.jpg'); -fx-background-size: 125px;" />
         <Button layoutX="14.0" layoutY="27.0" mnemonicParsing="false" onAction="#Login" text="Login/Regester" />
     </children>
 </AnchorPane>

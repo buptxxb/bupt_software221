@@ -57,4 +57,41 @@ public class ChattingController implements Initializable {
         chatUI.Show();
     }
 
+    public void showChat2() throws Exception {
+        if (util.GLOBALID == 0) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Prompt");
+            alert.setHeaderText(null);
+            alert.setContentText("please login first");
+            alert.showAndWait();
+            return;
+        }
+        ChatUI chatUI2=new ChatUI();
+        chatUI2.Show();
+    }
+    public void showChat3() throws Exception {
+        if (util.GLOBALID == 0) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Prompt");
+            alert.setHeaderText(null);
+            alert.setContentText("please login first");
+            alert.showAndWait();
+            return;
+        }
+        ChatUI chatUI3=new ChatUI();
+        chatUI3.Show();
+    }
+    public void showChat4() throws Exception {
+        if (util.GLOBALID == 0) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Prompt");
+            alert.setHeaderText(null);
+            alert.setContentText("please login first");
+            alert.showAndWait();
+            return;
+        }
+        ChatUI chatUI4=new ChatUI();
+        chatUI4.Show();
+    }
+
 }

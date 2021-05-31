@@ -29,8 +29,8 @@ public class People {
     }
 
     // update user's Information
-    public void updateInfo(String filename, People people) {
-        String context = class2JSON(people);
+    public void updateInfo(String filename) {
+        String context = class2JSON(this);
         new CreateJSON().createJSON(filename, context);
     }
 
@@ -46,5 +46,4 @@ public class People {
         jsonObject.put("weight",people.weight);
         return jsonObject.toString();
     }
-
 }

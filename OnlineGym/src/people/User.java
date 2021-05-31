@@ -27,10 +27,7 @@ public class User extends People {
     }
     public User(int id, String name) {
         this(id, name, 0, "Unknown", "0000-00-00", 0, 0, new int[0], "none");
-
     }
-
-
 
     public void like(int videoID) {
         String fileName = "src/data/like_data/like" + id + ".json";
@@ -99,8 +96,8 @@ public class User extends People {
         return res;
     }
 
-    public void updateInfo(String filename, User user) {
-        String context = class2JSON(user);
+    public void updateInfo(String filename) {
+        String context = class2JSON(this);
         new CreateJSON().createJSON(filename, context);
     }
 
@@ -118,5 +115,4 @@ public class User extends People {
         jsonObject.put("coach",user.coach);
         return jsonObject.toString();
     }
-
 }
