@@ -1,5 +1,7 @@
 package GUI;
 
+import data_handle.CreateJSON;
+import data_handle.GetJSON;
 import javafx.application.Application;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -8,6 +10,7 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
+import org.json.JSONObject;
 import util.util;
 
 import java.io.File;
@@ -25,32 +28,14 @@ public class Favorite extends Application{
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        String favoriteName;
-        favoriteName = "bicep";
-        // TODO
-
-        String path="src/video";
-        String[] namelist1=new String[50];
-        namelist1=getNames(path);
-        List<String> list1= Arrays.asList(namelist1);
-        List<String> arrList = new ArrayList<>(list1);
-        List<String> nulllist = new ArrayList<>();
-
-        nulllist.add(null);
-        arrList.remove("");
-        arrList.remove("init");
-        arrList.removeAll(nulllist);
-//        System.out.println(arrList);
-        String[] namelist2 = new String[arrList.size()];
-        namelist2 = (String[]) arrList.toArray(namelist2);
-
-//        String[] namelist3 = new String[namelist2.length];
-//        for (int i = 0; i < namelist3.length; i++) {
-//            namelist3[i]=namelist2[i].substring(0,namelist2[i].append("."));
-//            System.out.println(files[i].getName());
-//        }
-
-
+        String fileName = "src/data/like_data/like" + util.GLOBALID + ".json";
+        String jsonStr = new GetJSON().gotStr(fileName);
+        JSONObject json = new JSONObject(jsonStr);
+        int len = json.getJSONArray("video").length();
+        String[] videos = new String[len];
+        for (int i = 0; i < len; i++) {
+            videos[i] =  json.getJSONArray("video").getString(i);
+        }
 
         AnchorPane pane = new AnchorPane();
         Scene scene = new Scene(pane, 400, 400);
@@ -62,9 +47,7 @@ public class Favorite extends Application{
         btnBack.setLayoutY(23);
         btnBack.setOnAction(e->{
             primaryStage.close();
-                });
-
-
+        });
 
         ScrollPane sp =new ScrollPane();
         sp.setVbarPolicy(ScrollPane.ScrollBarPolicy.ALWAYS);
@@ -74,30 +57,23 @@ public class Favorite extends Application{
         sp.setLayoutX(50);
         sp.setLayoutY(70);
 
-
         VBox vb =new VBox();
         vb.setPrefWidth(300);
         vb.setAlignment(Pos.CENTER);
 
-//        for( int j=0;j<namelist2.length;j++){
-//            System.out.println(namelist2[j]);
-//        }
-
-        Button[] bt=new Button[namelist2.length];
+        Button[] bt=new Button[videos.length];
         AtomicInteger check= new AtomicInteger();
-        for( int j=0;j<namelist2.length;j++)
-        {
-            if(namelist2[j].contains(favoriteName)) {
+        for(int j=0;j<videos.length;j++) {
             bt[j] = new Button();
             bt[j].setMinSize(150, 90);
 
-            Image image= new Image("images/cover/"+namelist2[j]+".jpg");
+            Image image= new Image("images/cover/"+videos[j]+".jpg");
             BackgroundImage backgroundImage = new BackgroundImage( image, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, new BackgroundSize(150,90,true,true,true,true));
             Background background = new Background(backgroundImage);
 
             bt[j].setBackground(background);
 
-            String[] finalNamelist = namelist2;
+            String[] finalNamelist = videos;
             int finalJ = j;
             bt[j].setOnAction(e->{
                 Media media=new Media();
@@ -109,27 +85,18 @@ public class Favorite extends Application{
                 }
             });
             vb.getChildren().add(bt[j]);
-        }else{
-            check.set(check.get() + 1);
-        }
-            System.out.println(check.get());
-            if(check.get() ==namelist2.length){
+            if(check.get() ==videos.length){
                 Label lb=new Label("No result found!");
                 lb.setFont(Font.font(40));
                 vb.getChildren().add(lb);
             }
         }
 
-
-        String[] finalNamelist1 = namelist2;
+        String[] finalNamelist1 = videos;
 
         sp.setContent(vb);
-
-
         pane.getChildren().add(btnBack);
         pane.getChildren().add(sp);
-
-
         primaryStage.setTitle("Favorite");
         primaryStage.setScene(scene);
         primaryStage.show();
@@ -143,7 +110,6 @@ public class Favorite extends Application{
         for (int i = 0; i < files.length; i++) {
                 namelist1[i]=files[i].getName();
                 namelist2[i]=namelist1[i].substring(0,namelist1[i].lastIndexOf("."));
-//                System.out.println(files[i].getName());
         }
             return namelist2;
     }

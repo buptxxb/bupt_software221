@@ -52,28 +52,82 @@ public class FindingController implements Initializable {
 
 
     @FXML
-    public void Chest(ActionEvent event) {
-        application.userChest();
+    public void Chest(ActionEvent event) throws Exception {
+        if (util.GLOBALID != 0) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Prompt");
+            alert.setHeaderText(null);
+            alert.setContentText("please check your input");
+            alert.showAndWait();
+            return;
+        }
+        Category category = new Category("chest");
+        category.showWindow();
     }
     @FXML
-    public void ShoulderArm(ActionEvent event) {
-        application.userShoulderArm();
+    public void ShoulderArm(ActionEvent event) throws Exception {
+        if (util.GLOBALID != 0) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Prompt");
+            alert.setHeaderText(null);
+            alert.setContentText("please check your input");
+            alert.showAndWait();
+            return;
+        }
+        Category category = new Category("shoulderarm");
+        category.showWindow();
     }
     @FXML
-    public void Back(ActionEvent event) {
-        application.userBack();
+    public void Back(ActionEvent event) throws Exception {
+        if (util.GLOBALID != 0) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Prompt");
+            alert.setHeaderText(null);
+            alert.setContentText("please check your input");
+            alert.showAndWait();
+            return;
+        }
+        Category category = new Category("back");
+        category.showWindow();
     }
     @FXML
-    public void Hip(ActionEvent event) {
-        application.userHip();
+    public void Hip(ActionEvent event) throws Exception {
+        if (util.GLOBALID != 0) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Prompt");
+            alert.setHeaderText(null);
+            alert.setContentText("please check your input");
+            alert.showAndWait();
+            return;
+        }
+        Category category = new Category("hip");
+        category.showWindow();
     }
     @FXML
-    public void Leg(ActionEvent event) {
-        application.userLeg();
+    public void Leg(ActionEvent event) throws Exception {
+        if (util.GLOBALID != 0) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Prompt");
+            alert.setHeaderText(null);
+            alert.setContentText("please check your input");
+            alert.showAndWait();
+            return;
+        }
+        Category category = new Category("leg");
+        category.showWindow();
     }
     @FXML
-    public void Other(ActionEvent event) {
-        application.userOther();
+    public void Other(ActionEvent event) throws Exception {
+        if (util.GLOBALID != 0) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Prompt");
+            alert.setHeaderText(null);
+            alert.setContentText("please check your input");
+            alert.showAndWait();
+            return;
+        }
+        Category category = new Category("other");
+        category.showWindow();
     }
 
     @FXML

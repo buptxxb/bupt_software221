@@ -1,5 +1,6 @@
 package GUI;
 
+import data_handle.GetJSON;
 import javafx.application.Application;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -8,6 +9,7 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
+import org.json.JSONObject;
 import util.util;
 
 import java.io.File;
@@ -18,6 +20,11 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
 
 public class Category extends Application{
+    String wantCatogry;
+    public Category() {}
+    public Category(String wantCatogry) {
+        this.wantCatogry = wantCatogry;
+    }
     Stage stage=new Stage();
     public static void main(String[] args) throws Exception{
         launch(args);
@@ -29,12 +36,11 @@ public class Category extends Application{
 //        AtomicReference<String> searchContent= new AtomicReference<>(new String());
 //        searchContent.set(util.GLOBALSEARCH);
 
-        String sc= new String();
-        sc="hip";
 
-        String path="src/video";
+
+        String path="src/data/video_data";
         String[] namelist1=new String[50];
-        namelist1=getNames(path);
+        namelist1 = getNames(path);
         List<String> list1= Arrays.asList(namelist1);
         List<String> arrList = new ArrayList<String>(list1);
         List<String> nulllist = new ArrayList<String>();
@@ -44,7 +50,22 @@ public class Category extends Application{
         arrList.removeAll(nulllist);
 //        System.out.println(arrList);
         String[] namelist2 = new String[arrList.size()];
-        namelist2 = (String[]) arrList.toArray(namelist2);
+        namelist2 = arrList.toArray(namelist2);
+
+        ArrayList<String> list = new ArrayList();
+        for (String videoName : namelist2) {
+            String fileName = "src/data/video_data/" + videoName + ".json";
+            String jsonStr = new GetJSON().gotStr(fileName);
+            JSONObject json = new JSONObject(jsonStr);
+            String category = json.getString("category");
+
+            if (category.equals(wantCatogry)) {
+                list.add(videoName);
+            }
+
+        }
+
+
 
 //        String[] namelist3 = new String[namelist2.length];
 //        for (int i = 0; i < namelist3.length; i++) {
@@ -92,19 +113,21 @@ public class Category extends Application{
 
         Button[] bt=new Button[namelist2.length];
         AtomicInteger check= new AtomicInteger();
-        for( int j=0;j<namelist2.length;j++)
+        for( int j=0;j<list.size();j++)
         {
-            if(namelist2[j].contains(sc)) {
             bt[j] = new Button();
             bt[j].setMinSize(300, 200);
 
-            Image image= new Image("images/cover/"+namelist2[j]+".jpg");
+            Image image= new Image("images/cover/"+list.get(j)+".jpg");
             BackgroundImage backgroundImage = new BackgroundImage( image, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, new BackgroundSize(300,200,true,true,true,true));
             Background background = new Background(backgroundImage);
 
             bt[j].setBackground(background);
 
-            String[] finalNamelist = namelist2;
+            String[] finalNamelist = new String[list.size()];
+            for (int i = 0; i < list.size(); i++) {
+                finalNamelist[i] = list.get(i);
+            }
             int finalJ = j;
             bt[j].setOnAction(e->{
                 Media media=new Media();
@@ -116,11 +139,9 @@ public class Category extends Application{
                 }
             });
             hb.getChildren().add(bt[j]);
-        }else{
-            check.set(check.get() + 1);
-        }
 
-            if(check.get() ==namelist2.length){
+
+            if(check.get() ==list.size()){
                 Label lb=new Label("No Related Videos Yet!");
                 lb.setFont(Font.font(40));
                 hb.getChildren().add(lb);

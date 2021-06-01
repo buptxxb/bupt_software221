@@ -69,17 +69,40 @@ public class Media extends Application{
 
         User user = new GetJSON().createUser("src/data/user" + util.GLOBALID + ".json");
 
-        Button btnLike = new Button("Like "+ like[0]);
+        String jsonStr2 = new GetJSON().gotStr("src/data/like_data/like" + util.GLOBALID + ".json");
+        JSONObject json2 = new JSONObject(jsonStr2);
+        int len = json2.getJSONArray("video").length();
+        String[] videos = new String[len];
+        for (int i = 0; i < len; i++) {
+            videos[i] =  json2.getJSONArray("video").getString(i);
+        }
+        boolean status = true;
+
+        for(String video : videos) {
+            if (video.equals(videoName)) {
+                status = false;
+                break;
+            }
+        }
+
+        Button btnLike = new Button();
+        if (status) {
+            btnLike = new Button("Like "+ like[0]);
+        } else {
+            btnLike = new Button("Liked "+ like[0]);
+        }
+        Button finalBtnLike = btnLike;
+        boolean finalStatus = status;
         btnLike.setOnAction(e->{
-            if (btnLike.getText().equals("Like "+ like[0])){
+            if (finalStatus){
                 like[0] += 1;
-                btnLike.setText("Liked "+ like[0]);
+                finalBtnLike.setText("Liked "+ like[0]);
                 temp = like[0];
                 user.like(videoName);
             }
             else{
                 like[0] -= 1;
-                btnLike.setText("Like "+ like[0]);
+                finalBtnLike.setText("Like "+ like[0]);
                 temp = like[0];
                 user.removeLike(videoName);
             }
