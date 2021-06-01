@@ -3,6 +3,9 @@ package GUI;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
+import javafx.scene.control.TextField;
+import util.util;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -10,6 +13,7 @@ import java.util.ResourceBundle;
 public class ShoulderArmController implements Initializable {
 
     private MainPage application;
+    @FXML private TextField search;
 
     public void setApp(MainPage application){
         this.application = application;
@@ -42,8 +46,18 @@ public class ShoulderArmController implements Initializable {
     }
 
     @FXML
-    public void Search(ActionEvent event) {
-        application.userSearch();
+    public void Search (ActionEvent event) throws Exception {
+        if (search.getText().isEmpty() ) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Prompt");
+            alert.setHeaderText(null);
+            alert.setContentText("please input first!");
+            alert.showAndWait();
+            return;
+        }
+        util.GLOBALSEARCH = search.getText();
+        Search search=new Search();
+        search.showWindow();
     }
 
     @FXML

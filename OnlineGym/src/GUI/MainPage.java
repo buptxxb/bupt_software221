@@ -1,7 +1,5 @@
 package GUI;
 
-
-
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -166,8 +164,8 @@ public class MainPage extends Application {
 
     public void gotoFavorite(){
         try{
-            FavoriteController Favorite= (FavoriteController) changeScene("Favorite.fxml");
-            Favorite.setApp(this);
+            Favorite favorite= new Favorite();
+            favorite.showWindow();
         } catch (Exception ex){
             Logger.getLogger(MainPage.class.getName()).log(Level.SEVERE,null,ex);
         }
@@ -193,8 +191,8 @@ public class MainPage extends Application {
 
     public void gotoSearch(){
         try{
-            SearchController Search= (SearchController) changeScene("Search.fxml");
-            Search.setApp(this);
+            Search search= new Search();
+            search.showWindow();
         } catch (Exception ex){
             Logger.getLogger(MainPage.class.getName()).log(Level.SEVERE,null,ex);
         }

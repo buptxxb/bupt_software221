@@ -51,14 +51,11 @@ public class UserInfoController implements Initializable {
     }
 
     @FXML
-    public void Favorite(ActionEvent event) {
-        application.userFavorite();
+    public void Favorite(ActionEvent event) throws Exception {
+        Favorite favorite=new Favorite();
+        favorite.showWindow();
     }
 
-    @FXML
-    public void History(ActionEvent event) {
-        application.userHistory();
-    }
 
     @FXML
     public void ChargeM(ActionEvent event) {
