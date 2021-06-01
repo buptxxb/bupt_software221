@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.LoginStudentController" stylesheets="@MainStyle.css">
+    <children>
+        <Label layoutX="189.0" layoutY="177.0" text="AccNo" />
+        <Label layoutX="177.0" layoutY="220.0" text="Password" />
+        <PasswordField fx:id="Password" layoutX="246.0" layoutY="216.0" />
+        <TextField fx:id="AccNo" layoutX="246.0" layoutY="173.0" />
+        <Button layoutX="173.0" layoutY="311.0" mnemonicParsing="false" onAction="#Register" text="Register" />
+        <Button layoutX="391.0" layoutY="311.0" mnemonicParsing="false" onAction="#Login" text="Login" />
+      <ImageView fitHeight="129.0" fitWidth="301.0" layoutX="220.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Schedule/student.jpg" />
+         </image></ImageView>
+      <Button layoutX="25.0" layoutY="22.0" mnemonicParsing="false" onAction="#Finding" text="Main Page" />
+      <Label layoutX="202.0" layoutY="262.0" text="ID" />
+      <TextField fx:id="ID" layoutX="246.0" layoutY="258.0" />
+    </children>
+</AnchorPane>

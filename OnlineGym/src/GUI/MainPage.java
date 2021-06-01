@@ -249,6 +249,8 @@ public class MainPage extends Application {
         }
     }
 
+    public void userChoose(){ gotoChoose();}
+
     public void gotoChoose(){
         try{
             ChooseController Choose= (ChooseController) changeScene("Choose.fxml");

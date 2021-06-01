@@ -56,6 +56,10 @@ public class UserInfoController implements Initializable {
         favorite.showWindow();
     }
 
+    public void Choose(ActionEvent event) {
+        application.userChoose();
+    }
+
 
     @FXML
     public void ChargeM(ActionEvent event) {

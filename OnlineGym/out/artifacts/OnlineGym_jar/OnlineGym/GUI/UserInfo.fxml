@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.UserInfoController" stylesheets="@MainStyle.css">
+   <children>
+      <Button layoutX="14.0" layoutY="322.0" mnemonicParsing="false" onAction="#Finding" prefHeight="63.0" prefWidth="110.0" text="Finding" />
+      <Button layoutX="168.0" layoutY="322.0" mnemonicParsing="false" onAction="#Course" prefHeight="63.0" prefWidth="110.0" text="Courses" />
+      <Button layoutX="476.0" layoutY="322.0" mnemonicParsing="false" onAction="#UserInfo" prefHeight="63.0" prefWidth="110.0" text="UserInfo" />
+      <Button layoutX="322.0" layoutY="322.0" mnemonicParsing="false" onAction="#Chatting" prefHeight="63.0" prefWidth="110.0" text="Chatting" />
+      <Label alignment="CENTER" layoutX="82.0" layoutY="14.0" prefHeight="30.0" prefWidth="87.0" text="User ID" />
+      <Label alignment="CENTER" layoutX="82.0" layoutY="42.0" prefHeight="30.0" prefWidth="87.0" text="Name" />
+      <Label alignment="CENTER" layoutX="81.0" layoutY="72.0" prefHeight="30.0" prefWidth="87.0" text="Age" />
+      <Label alignment="CENTER" layoutX="80.0" layoutY="100.0" prefHeight="30.0" prefWidth="87.0" text="Gender" />
+      <Label alignment="CENTER" layoutX="82.0" layoutY="132.0" prefHeight="30.0" prefWidth="87.0" text="Birthday" />
+      <Label alignment="CENTER" layoutX="82.0" layoutY="162.0" prefHeight="30.0" prefWidth="87.0" text="Height" />
+      <Label alignment="CENTER" layoutX="82.0" layoutY="195.0" prefHeight="30.0" prefWidth="87.0" text="Weight" />
+      <Label fx:id="id" layoutX="223.0" layoutY="10.0" prefHeight="38.0" prefWidth="186.0" />
+      <Label fx:id="name" layoutX="229.0" layoutY="42.0" prefHeight="30.0" prefWidth="186.0" text="Label" />
+      <Label fx:id="age" layoutX="229.0" layoutY="72.0" prefHeight="30.0" prefWidth="186.0" text="Label" />
+      <Label fx:id="gender" layoutX="229.0" layoutY="100.0" prefHeight="30.0" prefWidth="186.0" text="Label" />
+      <Label fx:id="birthday" layoutX="229.0" layoutY="132.0" prefHeight="30.0" prefWidth="186.0" text="Label" />
+      <Label fx:id="height" layoutX="229.0" layoutY="162.0" prefHeight="30.0" prefWidth="186.0" text="Label" />
+      <Label fx:id="weight" layoutX="229.0" layoutY="195.0" prefHeight="30.0" prefWidth="186.0" text="Label" />
+      <Button layoutX="38.0" layoutY="276.0" mnemonicParsing="false" onAction="#InfoModi" prefHeight="28.0" prefWidth="127.0" text="Modify Infomation" />
+      <Button layoutX="214.0" layoutY="276.0" mnemonicParsing="false" onAction="#PasswordModi" prefHeight="28.0" prefWidth="127.0" text=" Modify Password" />
+      <Button layoutX="432.0" layoutY="33.0" mnemonicParsing="false" onAction="#ChargeM" prefHeight="48.0" prefWidth="127.0" text="Charge" />
+      <Label layoutX="106.0" layoutY="235.0" text="Money" />
+      <Label fx:id="money" layoutX="229.0" layoutY="229.0" prefHeight="28.0" prefWidth="127.0" text="Label" />
+      <Button fx:id="Pay" layoutX="426.0" layoutY="262.0" mnemonicParsing="false" onAction="#Pay" prefHeight="28.0" prefWidth="138.0" text="Pay for Membership" />
+      <Label layoutX="421.0" layoutY="235.0" text="500 yuan for membership" />
+      <Button layoutX="432.0" layoutY="85.0" mnemonicParsing="false" onAction="#Favorite" prefHeight="48.0" prefWidth="127.0" text="Favorite" />
+   </children>
+</AnchorPane>

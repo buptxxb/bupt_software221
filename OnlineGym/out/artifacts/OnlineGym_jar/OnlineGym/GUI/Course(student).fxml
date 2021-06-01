@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.CourseController_student" stylesheets="@MainStyle.css">
+    <children>
+        <Button layoutX="14.0" layoutY="322.0" mnemonicParsing="false" onAction="#Finding" prefHeight="63.0" prefWidth="110.0" text="Finding" />
+        <Button layoutX="168.0" layoutY="322.0" mnemonicParsing="false" onAction="#Course" prefHeight="63.0" prefWidth="110.0" text="Course" />
+        <Button layoutX="322.0" layoutY="322.0" mnemonicParsing="false" onAction="#Chatting" prefHeight="63.0" prefWidth="110.0" text="Chatting" />
+        <Button layoutX="476.0" layoutY="322.0" mnemonicParsing="false" onAction="#UserInfo" prefHeight="63.0" prefWidth="110.0" text="User Info" />
+      <ImageView fitHeight="30.0" fitWidth="64.0" layoutX="82.0" layoutY="76.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Schedule/Sun.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="23.0" fitWidth="64.0" layoutX="146.0" layoutY="76.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Schedule/Mon.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="23.0" fitWidth="64.0" layoutX="210.0" layoutY="76.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Schedule/Tue.jpg" />
+         </image></ImageView>
+      <ImageView fitHeight="23.0" fitWidth="64.0" layoutX="274.0" layoutY="76.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Schedule/Wed.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="23.0" fitWidth="64.0" layoutX="338.0" layoutY="76.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Schedule/Thu.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="23.0" fitWidth="64.0" layoutX="401.0" layoutY="76.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Schedule/Fri.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="23.0" fitWidth="64.0" layoutX="464.0" layoutY="76.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Schedule/Sat.jpg" />
+         </image>
+      </ImageView>
+        <TextField fx:id="Sun3" editable="false" layoutX="82.0" layoutY="143.0" prefHeight="23.0" prefWidth="64.0" />
+        <TextField fx:id="Sun1" editable="false" layoutX="82.0" layoutY="97.0" prefHeight="23.0" prefWidth="64.0" />
+        <TextField fx:id="Sun6" editable="false" layoutX="82.0" layoutY="211.0" prefHeight="23.0" prefWidth="64.0" />
+        <TextField fx:id="Sun5" editable="false" layoutX="82.0" layoutY="188.0" prefHeight="23.0" prefWidth="64.0" />
+        <TextField fx:id="Sun4" editable="false" layoutX="82.0" layoutY="166.0" prefHeight="23.0" prefWidth="64.0" />
+        <TextField fx:id="Sun2" editable="false" layoutX="82.0" layoutY="120.0" prefHeight="23.0" prefWidth="64.0" />
+        <TextField fx:id="Sat1" editable="false" layoutX="464.0" layoutY="97.0" prefHeight="23.0" prefWidth="64.0" />
+        <TextField fx:id="Sat6" editable="false" layoutX="464.0" layoutY="211.0" prefHeight="23.0" prefWidth="64.0" />
+        <TextField fx:id="Sat5" editable="false" layoutX="464.0" layoutY="188.0" prefHeight="23.0" prefWidth="64.0" />
+        <TextField fx:id="Sat4" editable="false" layoutX="464.0" layoutY="166.0" prefHeight="23.0" prefWidth="64.0" />
+        <TextField fx:id="Sat3" editable="false" layoutX="464.0" layoutY="143.0" prefHeight="23.0" prefWidth="64.0" />
+        <TextField fx:id="Sat2" editable="false" layoutX="464.0" layoutY="120.0" prefHeight="23.0" prefWidth="64.0" />
+        <TextField fx:id="Fri1" editable="false" layoutX="401.0" layoutY="97.0" prefHeight="23.0" prefWidth="64.0" />
+        <TextField fx:id="Fri6" editable="false" layoutX="401.0" layoutY="211.0" prefHeight="23.0" prefWidth="64.0" />
+        <TextField fx:id="Fri5" editable="false" layoutX="401.0" layoutY="188.0" prefHeight="23.0" prefWidth="64.0" />
+        <TextField fx:id="Fri4" editable="false" layoutX="401.0" layoutY="166.0" prefHeight="23.0" prefWidth="64.0" />
+        <TextField fx:id="Fri3" editable="false" layoutX="401.0" layoutY="143.0" prefHeight="23.0" prefWidth="64.0" />
+        <TextField fx:id="Fri2" editable="false" layoutX="401.0" layoutY="120.0" prefHeight="23.0" prefWidth="64.0" />
+        <TextField fx:id="Thu1" editable="false" layoutX="338.0" layoutY="97.0" prefHeight="23.0" prefWidth="64.0" />
+        <TextField fx:id="Thu6" editable="false" layoutX="338.0" layoutY="211.0" prefHeight="23.0" prefWidth="64.0" />
+        <TextField fx:id="Thu5" editable="false" layoutX="338.0" layoutY="188.0" prefHeight="23.0" prefWidth="64.0" />
+        <TextField fx:id="Thu4" editable="false" layoutX="338.0" layoutY="166.0" prefHeight="23.0" prefWidth="64.0" />
+        <TextField fx:id="Thu3" editable="false" layoutX="338.0" layoutY="143.0" prefHeight="23.0" prefWidth="64.0" />
+        <TextField fx:id="Thu2" editable="false" layoutX="338.0" layoutY="120.0" prefHeight="23.0" prefWidth="64.0" />
+        <TextField fx:id="Wed1" editable="false" layoutX="274.0" layoutY="97.0" prefHeight="23.0" prefWidth="64.0" />
+        <TextField fx:id="Wed6" editable="false" layoutX="274.0" layoutY="211.0" prefHeight="23.0" prefWidth="64.0" />
+        <TextField fx:id="Wed5" editable="false" layoutX="274.0" layoutY="188.0" prefHeight="23.0" prefWidth="64.0" />
+        <TextField fx:id="Wed4" editable="false" layoutX="274.0" layoutY="166.0" prefHeight="23.0" prefWidth="64.0" />
+        <TextField fx:id="Wed3" editable="false" layoutX="274.0" layoutY="143.0" prefHeight="23.0" prefWidth="64.0" />
+        <TextField fx:id="Wed2" editable="false" layoutX="274.0" layoutY="120.0" prefHeight="23.0" prefWidth="64.0" />
+        <TextField fx:id="Mon1" editable="false" layoutX="146.0" layoutY="97.0" prefHeight="23.0" prefWidth="64.0" />
+        <TextField fx:id="Mon6" editable="false" layoutX="146.0" layoutY="211.0" prefHeight="23.0" prefWidth="64.0" />
+        <TextField fx:id="Mon5" editable="false" layoutX="146.0" layoutY="188.0" prefHeight="23.0" prefWidth="64.0" />
+        <TextField fx:id="Mon4" editable="false" layoutX="146.0" layoutY="166.0" prefHeight="23.0" prefWidth="64.0" />
+        <TextField fx:id="Mon3" editable="false" layoutX="146.0" layoutY="143.0" prefHeight="23.0" prefWidth="64.0" />
+        <TextField fx:id="Mon2" editable="false" layoutX="146.0" layoutY="120.0" prefHeight="23.0" prefWidth="64.0" />
+        <TextField fx:id="Tue1" editable="false" layoutX="210.0" layoutY="97.0" prefHeight="23.0" prefWidth="64.0" />
+        <TextField fx:id="Tue6" editable="false" layoutX="210.0" layoutY="211.0" prefHeight="23.0" prefWidth="64.0" />
+        <TextField fx:id="Tue5" editable="false" layoutX="210.0" layoutY="188.0" prefHeight="23.0" prefWidth="64.0" />
+        <TextField fx:id="Tue4" editable="false" layoutX="210.0" layoutY="166.0" prefHeight="23.0" prefWidth="64.0" />
+        <TextField fx:id="Tue3" editable="false" layoutX="210.0" layoutY="143.0" prefHeight="23.0" prefWidth="64.0" />
+        <TextField fx:id="Tue2" editable="false" layoutX="210.0" layoutY="120.0" prefHeight="23.0" prefWidth="64.0" />
+      <ImageView fitHeight="136.0" fitWidth="38.0" layoutX="50.0" layoutY="98.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Schedule/time.jpg" />
+         </image>
+
+      </ImageView>
+      <Button layoutX="478.0" layoutY="34.0" mnemonicParsing="false" onAction="#Live" text="Live Broadcast" />
+        
+      
+    </children>
+</AnchorPane>
