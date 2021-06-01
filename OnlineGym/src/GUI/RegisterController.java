@@ -13,6 +13,7 @@ import people.User;
 import util.util;
 
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URL;
@@ -36,10 +37,21 @@ public class RegisterController implements Initializable {
             alert.setHeaderText(null);
             alert.setContentText("please check your input them");
             alert.showAndWait();
+            return;
         }
+
 
         // TODO
         String str = "src/data/account"+ ID.getText() +".json";
+        File file = new File(str);
+        if (file.exists()) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Prompt");
+            alert.setHeaderText(null);
+            alert.setContentText("ID alread exists");
+            alert.showAndWait();
+            return;
+        }
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("ID", ID.getText());
         jsonObject.put("AccNo", AccNo.getText());
@@ -64,16 +76,8 @@ public class RegisterController implements Initializable {
             }
         }
         User user = new User(Integer.parseInt(ID.getText()), AccNo.getText());
-//        User user = new GetJSON().createUser(str);
         str = "src/data/user"+ ID.getText() +".json";
-        user.updateInfo(str, user);
-
-//        Account account = new GetJSON().createAccount(str);
-//        account.AccNo = AccNo.getText().isEmpty() ? account.AccNo : AccNo.getText();
-//        account.Password = Password.getText().isEmpty() ? account.Password : Password.getText();
-//
-//        account.updateInfo(str, account);
-
+        user.updateInfo(str);
         application.userUserInfo();
     }
 

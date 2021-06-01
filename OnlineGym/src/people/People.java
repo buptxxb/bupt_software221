@@ -1,5 +1,6 @@
 package people;
 
+import data_handle.CreateJSON;
 import data_handle.GetJSON;
 import org.json.JSONObject;
 
@@ -28,8 +29,9 @@ public class People {
     }
 
     // update user's Information
-    public void updateInfo(String filename, People people) {
-        createJSON(filename, people);
+    public void updateInfo(String filename) {
+        String context = class2JSON(this);
+        new CreateJSON().createJSON(filename, context);
     }
 
     // change class to .json file
@@ -44,28 +46,4 @@ public class People {
         jsonObject.put("weight",people.weight);
         return jsonObject.toString();
     }
-
-    // create a new JSON file with a Class
-    public void createJSON(String filename,People people) {
-        GetJSON getJSON = new GetJSON();
-        BufferedWriter bw = null;
-        try {
-            String ans = getJSON.gotStr(filename);
-            bw = new BufferedWriter(new FileWriter("src/data/user2.json"));// 输出新的json文件
-            bw.write(class2JSON(people));
-            bw.flush();
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            try {
-                if (bw != null) {
-                    bw.close();
-                }
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
 }

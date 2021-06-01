@@ -56,13 +56,14 @@ public class LoginController implements Initializable {
         String password = obj.getString("Password");
         String accNo = obj.getString("AccNo");
         util.GLOBALID = obj.getInt("ID");
+        util.GLOBALNAME = obj.getString("AccNo");
 
 
         if ((accNo).equals(AccNo.getText()) && ((password).equals(Password.getText()))) {
             application.userFinding();
         } else {
             Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("错误提示");
+            alert.setTitle("Prompt");
             alert.setHeaderText(null);
             alert.setContentText("AccNo or password error, please re-enter!");
             alert.showAndWait();

@@ -7,8 +7,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.fxml.JavaFXBuilderFactory;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import util.util;
 
 import java.io.InputStream;
 import java.util.logging.Level;
@@ -45,17 +47,19 @@ public class MainPage extends Application {
             }
             //OPen the server开启服务器
             while(true){
-                Socket client= null;	//Accept the client and wait for the client to arrive(接受客户端，等待客户端到来)
-                try {
-                    client = server.accept();
-                } catch (IOException e) {
-                    e.printStackTrace();
+                if (util.GLOBALID != 0) {
+                    Socket client= null;	//Accept the client and wait for the client to arrive(接受客户端，等待客户端到来)
+                    try {
+                        client = server.accept();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    System.out.println("The number of online member：" + clients.size());
+                    //Get what the client said and distribute a thread(获取客户端说的话,派发一个线程)
+                    ChatServerThread c = new ChatServerThread(client);
+                    clients.add(client);
+                    c.start();
                 }
-                System.out.println("The number of online member：" + clients.size());
-                //Get what the client said and distribute a thread(获取客户端说的话,派发一个线程)
-                ChatServerThread c = new ChatServerThread(client);
-                clients.add(client);
-                c.start();
             }
         }
     }
@@ -89,6 +93,15 @@ public class MainPage extends Application {
         }
     }
 
+    public void gotoCourse_student(){
+        try{
+            CourseController_student course_student=(CourseController_student) changeScene("Course(student).fxml");
+            course_student.setApp(this);
+        } catch (Exception ex){
+            Logger.getLogger(MainPage.class.getName()).log(Level.SEVERE,null,ex);
+        }
+    }
+
     public void gotoChatting(){
         try{
             ChattingController chatting=(ChattingController) changeScene("Chatting.fxml");
@@ -99,6 +112,14 @@ public class MainPage extends Application {
     }
 
     public void gotoUserInfo(){
+        if (util.GLOBALID == 0) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Prompt");
+            alert.setHeaderText(null);
+            alert.setContentText("please login first");
+            alert.showAndWait();
+            return;
+        }
         try{
             UserInfoController userinfo=(UserInfoController) changeScene("UserInfo.fxml");
             userinfo.setApp(this);
@@ -156,6 +177,15 @@ public class MainPage extends Application {
         try{
             HistoryController History= (HistoryController) changeScene("History.fxml");
             History.setApp(this);
+        } catch (Exception ex){
+            Logger.getLogger(MainPage.class.getName()).log(Level.SEVERE,null,ex);
+        }
+    }
+
+    public void gotoCharge(){
+        try{
+            ChargeController Charge= (ChargeController) changeScene("Charge.fxml");
+            Charge.setApp(this);
         } catch (Exception ex){
             Logger.getLogger(MainPage.class.getName()).log(Level.SEVERE,null,ex);
         }
@@ -224,6 +254,14 @@ public class MainPage extends Application {
 
     public void userCourse(){
         gotoCourse();
+    }
+
+    public void userChargeM(){
+        gotoCharge();
+    }
+
+    public void userCourse_student(){
+        gotoCourse_student();
     }
 
     public void userChatting(){
@@ -305,7 +343,7 @@ class ChatServerThread extends Thread{
 
     public ChatServerThread(Socket socket) {
 //        ip = socket.getInetAddress().getHostAddress();
-        ip="lzh";
+        ip = "user" + util.GLOBALID;
         this.socket = socket;
     }
     @Override
