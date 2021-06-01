@@ -53,7 +53,7 @@ public class FindingController implements Initializable {
 
     @FXML
     public void Chest(ActionEvent event) throws Exception {
-        if (util.GLOBALID != 0) {
+        if (util.GLOBALID == 0) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Prompt");
             alert.setHeaderText(null);
@@ -66,7 +66,7 @@ public class FindingController implements Initializable {
     }
     @FXML
     public void ShoulderArm(ActionEvent event) throws Exception {
-        if (util.GLOBALID != 0) {
+        if (util.GLOBALID == 0) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Prompt");
             alert.setHeaderText(null);
@@ -79,7 +79,7 @@ public class FindingController implements Initializable {
     }
     @FXML
     public void Back(ActionEvent event) throws Exception {
-        if (util.GLOBALID != 0) {
+        if (util.GLOBALID == 0) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Prompt");
             alert.setHeaderText(null);
@@ -92,7 +92,7 @@ public class FindingController implements Initializable {
     }
     @FXML
     public void Hip(ActionEvent event) throws Exception {
-        if (util.GLOBALID != 0) {
+        if (util.GLOBALID == 0) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Prompt");
             alert.setHeaderText(null);
@@ -105,7 +105,7 @@ public class FindingController implements Initializable {
     }
     @FXML
     public void Leg(ActionEvent event) throws Exception {
-        if (util.GLOBALID != 0) {
+        if (util.GLOBALID == 0) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Prompt");
             alert.setHeaderText(null);
@@ -118,7 +118,7 @@ public class FindingController implements Initializable {
     }
     @FXML
     public void Other(ActionEvent event) throws Exception {
-        if (util.GLOBALID != 0) {
+        if (util.GLOBALID == 0) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Prompt");
             alert.setHeaderText(null);
