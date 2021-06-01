@@ -16,8 +16,8 @@ import javafx.util.Duration;
 public class Media extends Application{
 
     Stage stage=new Stage();
-    private Double endTime = new Double(0);
-    private Double currentTime = new Double(0);
+    private Double endTime = 0.0;
+    private Double currentTime = (double) 0;
     String videoName=new String("init");
     String path="src/video/"+videoName+".mp4";
     private java.io.File file = new java.io.File(path);
@@ -56,16 +56,16 @@ public class Media extends Application{
         });
 
         final int[] like = {0};
-        Button btnLike = new Button("Like"+ like[0]);
+        Button btnLike = new Button("Like "+ like[0]);
         btnLike.setOnAction(e->{
-            if (btnLike.getText().equals("Like"+ like[0])){
+            if (btnLike.getText().equals("Like "+ like[0])){
                 like[0] += 1;
-                btnLike.setText("Liked"+ like[0]);
+                btnLike.setText("Liked "+ like[0]);
 
             }
             else{
-                btnLike.setText("Liked");
-                btnLike.setText("Like");
+                like[0] -= 1;
+                btnLike.setText("Like "+ like[0]);
             }
         });
 
@@ -139,12 +139,12 @@ public class Media extends Application{
     }
 
     private String Seconds2Str(Double seconds){
-        Integer count = seconds.intValue();
-        Integer Hours = count / 3600;
+        int count = seconds.intValue();
+        int Hours = count / 3600;
         count = count % 3600;
-        Integer Minutes = count /60;
+        int Minutes = count /60;
         count = count % 60;
-        String str = Hours.toString()+":"+Minutes.toString()+":"+count.toString();
+        String str = Integer.toString(Hours) +":"+ Integer.toString(Minutes) +":"+ Integer.toString(count);
         return str;
     }
 

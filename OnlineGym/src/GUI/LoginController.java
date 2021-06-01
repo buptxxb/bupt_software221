@@ -63,7 +63,7 @@ public class LoginController implements Initializable {
             application.userFinding();
         } else {
             Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("错误提示");
+            alert.setTitle("Prompt");
             alert.setHeaderText(null);
             alert.setContentText("AccNo or password error, please re-enter!");
             alert.showAndWait();

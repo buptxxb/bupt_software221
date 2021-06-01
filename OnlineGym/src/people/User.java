@@ -14,7 +14,8 @@ import java.util.List;
 public class User extends People {
     public int[] classID;
     public String coach;
-    public User(int id, String name, int age, String gender, String birthday, int height, int weight, int[] classID, String coach) {
+    public double money;
+    public User(int id, String name, int age, String gender, String birthday, int height, int weight, int[] classID, String coach,double money) {
         this.id = id;
         this.name = name;
         this.age = age;
@@ -24,9 +25,10 @@ public class User extends People {
         this.weight = weight;
         this.classID = classID;
         this.coach = coach;
+        this.money = money;
     }
     public User(int id, String name) {
-        this(id, name, 0, "Unknown", "0000-00-00", 0, 0, new int[0], "none");
+        this(id, name, 0, "Unknown", "0000-00-00", 0, 0, new int[0], "none",0.00);
     }
 
     public void like(int videoID) {
@@ -113,6 +115,8 @@ public class User extends People {
         jsonObject.put("weight",user.weight);
         jsonObject.put("classID",user.classID);
         jsonObject.put("coach",user.coach);
+        //TODO
+        jsonObject.put("money",user.money);
         return jsonObject.toString();
     }
 }

@@ -113,7 +113,8 @@ public class GetJSON {
                 json.getInt("height"),
                 json.getInt("weight"),
                 tmp,
-                json.getString("coach")
+                json.getString("coach"),
+                json.getDouble("money")
         );
         return user;
     }

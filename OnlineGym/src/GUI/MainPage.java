@@ -182,6 +182,15 @@ public class MainPage extends Application {
         }
     }
 
+    public void gotoCharge(){
+        try{
+            ChargeController Charge= (ChargeController) changeScene("Charge.fxml");
+            Charge.setApp(this);
+        } catch (Exception ex){
+            Logger.getLogger(MainPage.class.getName()).log(Level.SEVERE,null,ex);
+        }
+    }
+
     public void gotoSearch(){
         try{
             SearchController Search= (SearchController) changeScene("Search.fxml");
@@ -245,6 +254,10 @@ public class MainPage extends Application {
 
     public void userCourse(){
         gotoCourse();
+    }
+
+    public void userChargeM(){
+        gotoCharge();
     }
 
     public void userCourse_student(){
