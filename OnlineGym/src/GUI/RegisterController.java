@@ -10,8 +10,10 @@ import javafx.scene.control.TextField;
 import org.json.JSONObject;
 import people.Account;
 import people.User;
+import util.util;
 
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URL;
@@ -29,46 +31,32 @@ public class RegisterController implements Initializable {
     public void Finding(ActionEvent event){application.userFinding();}
 
     public void Register(ActionEvent event) {
-        if (AccNo.getText().isEmpty()&&Password.getText().isEmpty()&&ID.getText().isEmpty())
-        {
+        if (AccNo.getText().isEmpty() || Password.getText().isEmpty() || ID.getText().isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Prompt");
             alert.setHeaderText(null);
-            alert.setContentText("AccNo, password and ID is empty, please enter them");
+            alert.setContentText("please check your input them");
             alert.showAndWait();
+            return;
         }
-        else if (AccNo.getText().isEmpty())
-        {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Prompt");
-            alert.setHeaderText(null);
-            alert.setContentText("AccNo is empty, please enter it");
-            alert.showAndWait();
-        }
-        else if (Password.getText().isEmpty())
-        {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Prompt");
-            alert.setHeaderText(null);
-            alert.setContentText("Password is empty, please enter it");
-            alert.showAndWait();
-        }
-        else if (ID.getText().isEmpty())
-        {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Prompt");
-            alert.setHeaderText(null);
-            alert.setContentText("ID is empty, please enter it");
-            alert.showAndWait();
-        }
+
+
         // TODO
-        String str = "src/data/user"+ ID.getText() +".json";
+        String str = "src/data/account"+ ID.getText() +".json";
+        File file = new File(str);
+        if (file.exists()) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Prompt");
+            alert.setHeaderText(null);
+            alert.setContentText("ID alread exists");
+            alert.showAndWait();
+            return;
+        }
         JSONObject jsonObject = new JSONObject();
-//        jsonObject.put("ID", ID.getText());
+        jsonObject.put("ID", ID.getText());
         jsonObject.put("AccNo", AccNo.getText());
         jsonObject.put("Password", Password.getText());
-
-
+        util.GLOBALID = Integer.parseInt(ID.getText());
 
         BufferedWriter bw = null;
         try {
@@ -87,14 +75,9 @@ public class RegisterController implements Initializable {
                 e.printStackTrace();
             }
         }
-
-
-        Account account = new GetJSON().createAccount(str);
-        account.AccNo = AccNo.getText().isEmpty() ? account.AccNo : AccNo.getText();
-        account.Password = Password.getText().isEmpty() ? account.Password : Password.getText();
-
-        account.updateInfo(str, account);
-
+        User user = new User(Integer.parseInt(ID.getText()), AccNo.getText());
+        str = "src/data/user"+ ID.getText() +".json";
+        user.updateInfo(str);
         application.userUserInfo();
     }
 

@@ -1,5 +1,8 @@
 package com.chat;
 
+import java.awt.*;
+import javax.swing.*;
+import java.awt.event.*;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -18,9 +21,9 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
-public class ChatUI {
-	private static String serverAddress = "127.0.0.1";	
-	
+public class ChatUI extends Frame{
+	private static String serverAddress = "127.0.0.1";
+
 	private JFrame frame;
 	private JTextField textField;
 	
@@ -33,7 +36,7 @@ public class ChatUI {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	public static void Show( ) {
 		EventQueue.invokeLater(new Runnable() {
 			
 			@Override
@@ -42,7 +45,7 @@ public class ChatUI {
 					ChatUI window = new ChatUI();
 					window.frame.setVisible(true);
 					
-					new Thread(){
+					new Thread() {
 						@Override
 						public void run() {
 							while(true){
@@ -52,7 +55,7 @@ public class ChatUI {
 									int len = in.read(b);
 									String word = jiexi(new String(b, 0, len));
 									textArea.append(word+"\n");
-									textArea.setCaretPosition(textArea.getText().length()); 
+									textArea.setCaretPosition(textArea.getText().length());
 
 								} catch (Exception e) {
 									// TODO: handle exception
@@ -75,11 +78,10 @@ public class ChatUI {
 	public static String jiexi(String word) {
 		int len = 0;
 		if((len = word.indexOf("#num")) != -1) {
-			String renshu = word.substring(len+4, word.length());
-			textField_1.setText("\u5728\u7EBF\u4EBA\u6570\uFF1A" + renshu);
+//			textField_1.setText("\u5728\u7EBF\u4EBA\u6570\uFF1A");
 			return word.substring(0, len);
 		}
-		
+
 		return word;
 	}
 	/**
@@ -104,7 +106,7 @@ public class ChatUI {
 		}
 
 		frame = new JFrame();
-		frame.setBounds(100, 100, 728, 744);
+		frame.setBounds(100, 100, 728, 680);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
@@ -121,13 +123,13 @@ public class ChatUI {
 			@Override
 			public void keyTyped(KeyEvent e) {
 				// TODO Auto-generated method stub
-				
+
 			}
 
 			@Override
 			public void keyReleased(KeyEvent e) {
 				// TODO Auto-generated method stub
-				
+
 			}
 		});
 		
@@ -150,30 +152,50 @@ public class ChatUI {
 		scrollPane.setBounds(47, 74, 627, 374);
 		frame.getContentPane().add(scrollPane);
 		
-		
-		
+
+
 		textField_1 = new JTextField();
-		textField_1.setText("\u5728\u7EBF\u4EBA\u6570\uFF1A0\u4EBA");
-		textField_1.setBounds(47, 35, 113, 24);
+		textField_1.setText("Have a chat with the coach !");
+		textField_1.setBounds(47, 35, 170, 24);
 		textField_1.setEditable(false);
 		frame.getContentPane().add(textField_1);
 		textField_1.setColumns(10);
 		
-		JButton button = new JButton("\u9000\u51FA");
+		JButton button = new JButton("Close");
 		button.setBounds(420, 574, 113, 27);
 		frame.getContentPane().add(button);
 		button.addActionListener(e -> {
-			SendText("#exit");
-			System.exit(0);
+			frame.dispose();
+			frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		});
 		frame.setTitle("Chat Room");
+
 		frame.addWindowListener(new WindowAdapter() {
 			@Override
 			public void windowClosing(WindowEvent e) {
-				SendText("#exit");
+				frame.dispose();
+				frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 			}
+//			protected void processWindowEvent(WindowEvent e){
+//				if (e.getID() == WindowEvent.WINDOW_CLOSING) { }
+//			}
 		});
+//		frame.addWindowListener(new WindowAdapter() {
+//			public void windowClosing(WindowEvent e) {
+//				super.windowClosing(e);
+//			}
+//		});
+		
 	}
+//	protected void processWindowEvent(WindowEvent e) {
+//		if (e.getID() == WindowEvent.WINDOW_CLOSING) {
+//		} else {
+//			super.processWindowEvent(e);
+//		}
+//	}
+
+
+
 	/*
 	 * ·¢ËÍÏûÏ¢
 	 */
@@ -189,4 +211,13 @@ public class ChatUI {
 			// TODO: handle exception
 		}
 	}
+
+//	protected void processWindowEvent(WindowEvent e) {
+//		if (e.getID() == WindowEvent.WINDOW_CLOSING) {
+//		} else {
+//			super.processWindowEvent(e);
+//		}
+//	}
+
 }
+

@@ -2,12 +2,38 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.ChattingController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.ChattingController" stylesheets="@MainStyle.css">
     <children>
         <Button layoutX="14.0" layoutY="322.0" mnemonicParsing="false" onAction="#Finding" prefHeight="63.0" prefWidth="110.0" text="Finding" />
         <Button layoutX="168.0" layoutY="322.0" mnemonicParsing="false" onAction="#Course" prefHeight="63.0" prefWidth="110.0" text="Course" />
         <Button layoutX="322.0" layoutY="322.0" mnemonicParsing="false" onAction="#Chatting" prefHeight="63.0" prefWidth="110.0" text="Chatting" />
         <Button layoutX="476.0" layoutY="322.0" mnemonicParsing="false" onAction="#UserInfo" prefHeight="63.0" prefWidth="110.0" text="User Info" />
+      <Button layoutX="92.0" layoutY="52.0" mnemonicParsing="false" onAction="#showChat1" prefHeight="102.0" prefWidth="132.0" style="-fx-background-image:url('/images/coach/Johnson.png'); -fx-background-size: 130px;" />
+      <Button layoutX="377.0" layoutY="52.0" mnemonicParsing="false" onAction="#showChat2" prefHeight="102.0" prefWidth="132.0" style="-fx-background-image:url('/images/coach/Paul.png'); -fx-background-size: 125px;" />
+      <Button layoutX="92.0" layoutY="188.0" mnemonicParsing="false" onAction="#showChat3" prefHeight="102.0" prefWidth="132.0" style="-fx-background-image:url('/images/coach/Yujiro.png'); -fx-background-size: 135px;" />
+      <Button layoutX="377.0" layoutY="188.0" mnemonicParsing="false" onAction="#showChat4" prefHeight="102.0" prefWidth="132.0" style="-fx-background-image:url('/images/coach/Queen.png'); -fx-background-size: 135px;" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="179.0" layoutY="14.0" prefHeight="45.0" prefWidth="241.0" text="Chatting with Coaches" textAlignment="CENTER" textFill="#974747" textOverrun="CENTER_WORD_ELLIPSIS">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="121.0" layoutY="154.0" prefHeight="25.0" prefWidth="74.0" text="Johnson">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font></Label>
+      <Label alignment="CENTER" layoutX="406.0" layoutY="154.0" prefHeight="25.0" prefWidth="74.0" text="Paul">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font></Label>
+      <Label alignment="CENTER" layoutX="121.0" layoutY="290.0" prefHeight="25.0" prefWidth="74.0" text="Yujiro">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font></Label>
+      <Label alignment="CENTER" layoutX="406.0" layoutY="290.0" prefHeight="25.0" prefWidth="74.0" text="Queen">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font></Label>
     </children>
 </AnchorPane>

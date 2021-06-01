@@ -1,5 +1,6 @@
 package people;
 
+import data_handle.CreateJSON;
 import data_handle.GetJSON;
 import org.json.JSONObject;
 
@@ -13,7 +14,8 @@ import java.util.List;
 public class User extends People {
     public int[] classID;
     public String coach;
-    public User(int id, String name, int age, String gender, String birthday, int height, int weight, int[] classID, String coach) {
+    public double money;
+    public User(int id, String name, int age, String gender, String birthday, int height, int weight, int[] classID, String coach,double money) {
         this.id = id;
         this.name = name;
         this.age = age;
@@ -23,9 +25,14 @@ public class User extends People {
         this.weight = weight;
         this.classID = classID;
         this.coach = coach;
+        this.money = money;
+    }
+    public User(int id, String name) {
+        this(id, name, 0, "Unknown", "0000-00-00", 0, 0, new int[0], "none",0.00);
     }
 
-    public void like(String fileName, int videoID) {
+    public void like(int videoID) {
+        String fileName = "src/data/like_data/like" + id + ".json";
         List<Integer> list = new GetJSON().createLike(fileName, id);
         if (list.contains(videoID)) return;
 
@@ -35,11 +42,65 @@ public class User extends People {
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("id",id);
         jsonObject.put("video", list.toArray());
-        createJSON(fileName, jsonObject.toString());
+        new CreateJSON().createJSON(fileName, jsonObject.toString());
     }
 
-    public void showLike() {
 
+    public void removeLike(int videoID) {
+        String fileName = "src/data/like_data/like" + id + ".json";
+        List<Integer> list = new GetJSON().createLike(fileName, id);
+
+        list.remove((Object)videoID);
+        Collections.sort(list);
+
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("id",id);
+        jsonObject.put("video", list.toArray());
+        new CreateJSON().createJSON(fileName, jsonObject.toString());
+    }
+
+    public int[] showLike() {
+        String filename = "src/data/like_data/like" + id + ".json";
+        String jsonStr = new GetJSON().gotStr(filename);
+        JSONObject json = new JSONObject(jsonStr);
+        int len = json.getJSONArray("video").length();
+        int[] res = new int[len];
+        for (int i = 0; i < len; i++) {
+            res[i] = json.getJSONArray("video").getInt(i);
+        }
+        return res;
+
+    }
+
+    public void history(int videoID) {
+        String fileName = "src/data/history_data/history" + id + ".json";
+        List<Integer> list = new GetJSON().createLike(fileName, id);
+        if (list.contains(videoID)) return;
+
+        list.add(videoID);
+        Collections.sort(list);
+
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("id",id);
+        jsonObject.put("video", list.toArray());
+        new CreateJSON().createJSON(fileName, jsonObject.toString());
+    }
+
+    public int[] showHistory() {
+        String filename = "src/data/history_data/history" + id + ".json";
+        String jsonStr = new GetJSON().gotStr(filename);
+        JSONObject json = new JSONObject(jsonStr);
+        int len = json.getJSONArray("video").length();
+        int[] res = new int[len];
+        for (int i = 0; i < len; i++) {
+            res[i] = json.getJSONArray("video").getInt(i);
+        }
+        return res;
+    }
+
+    public void updateInfo(String filename) {
+        String context = class2JSON(this);
+        new CreateJSON().createJSON(filename, context);
     }
 
     // change class to .json file
@@ -54,9 +115,8 @@ public class User extends People {
         jsonObject.put("weight",user.weight);
         jsonObject.put("classID",user.classID);
         jsonObject.put("coach",user.coach);
+        //TODO
+        jsonObject.put("money",user.money);
         return jsonObject.toString();
     }
-
-
-
 }

@@ -4,6 +4,7 @@ import data_handle.GetJSON;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import people.User;
 import util.util;
@@ -50,13 +51,40 @@ public class UserInfoController implements Initializable {
     }
 
     @FXML
-    public void Favorite(ActionEvent event) {
-        application.userFavorite();
+    public void Favorite(ActionEvent event) throws Exception {
+        Favorite favorite=new Favorite();
+        favorite.showWindow();
     }
 
+
     @FXML
-    public void History(ActionEvent event) {
-        application.userHistory();
+    public void ChargeM(ActionEvent event) {
+        application.userChargeM();
+    }
+
+    public void Pay(ActionEvent event){
+
+        if(Double.parseDouble(money.getText())<500.00){
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Attention");
+            alert.setHeaderText(null);
+            alert.setContentText("You don't have enough deposit to pay, please prepay first");
+            alert.showAndWait();
+        }else {
+            String str = "src/data/user" + util.GLOBALID + ".json";
+            User user = new GetJSON().createUser(str);
+            user.money = Double.parseDouble(money.getText())-500.00;
+            user.updateInfo(str);
+
+            application.userUserInfo();
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Success");
+            alert.setHeaderText(null);
+            alert.setContentText("Congratulations! You have become our valued member");
+            alert.showAndWait();
+
+            application.userUserInfo();
+        }
     }
 
     @FXML
@@ -69,14 +97,11 @@ public class UserInfoController implements Initializable {
     public Label weight;
     public Label classID;
     public Label coach;
+    public Label money;
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
         // TODO需要改用户对应的str
-        if(util.GLOBALID == 0) {
-            System.out.println("Please login");
-            return;
-        }
         String str = "src/data/user" + util.GLOBALID + ".json";
         User user = new GetJSON().createUser(str);
         id.setText(String.valueOf(user.id));
@@ -86,6 +111,8 @@ public class UserInfoController implements Initializable {
         birthday.setText(String.valueOf(user.birthday));
         height.setText(String.valueOf(user.height));
         weight.setText(String.valueOf(user.weight));
+        //TODO
+        money.setText((String.valueOf(user.money)));
     }
 
 }

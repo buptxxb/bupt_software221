@@ -38,7 +38,8 @@ public class InfoModiController implements Initializable {
         user.birthday = birthday.getText().isEmpty() ? user.birthday : birthday.getText();
         user.height = height.getText().isEmpty() ? user.height : Integer.parseInt(height.getText());
         user.weight = weight.getText().isEmpty() ? user.weight : Integer.parseInt(weight.getText());
-        user.updateInfo(str, user);
+        util.GLOBALNAME = user.name;
+        user.updateInfo(str);
 
         application.userUserInfo();
     }
