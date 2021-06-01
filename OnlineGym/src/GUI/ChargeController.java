@@ -111,7 +111,6 @@ public class ChargeController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
         User user = new GetJSON().createUser(str);
-
         Money = 0.0;
 
     }

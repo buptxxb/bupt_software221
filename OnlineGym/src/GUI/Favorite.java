@@ -34,6 +34,7 @@ public class Favorite extends Application{
         List<String> list1= Arrays.asList(namelist1);
         List<String> arrList = new ArrayList<>(list1);
         List<String> nulllist = new ArrayList<>();
+
         nulllist.add(null);
         arrList.remove("");
         arrList.remove("init");
@@ -49,6 +50,10 @@ public class Favorite extends Application{
 //        }
 
 
+
+        AnchorPane pane = new AnchorPane();
+        Scene scene = new Scene(pane, 400, 400);
+        scene.getStylesheets().add(getClass().getResource("MainStyle2.css").toExternalForm());
 
         Button btnBack = new Button("Back");
         btnBack.setMinSize(80, 40);
@@ -118,11 +123,11 @@ public class Favorite extends Application{
         String[] finalNamelist1 = namelist2;
 
         sp.setContent(vb);
-        AnchorPane pane = new AnchorPane();
+
+
         pane.getChildren().add(btnBack);
         pane.getChildren().add(sp);
 
-        Scene scene = new Scene(pane, 400, 400);
 
         primaryStage.setTitle("Favorite");
         primaryStage.setScene(scene);

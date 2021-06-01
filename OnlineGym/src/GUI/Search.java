@@ -1,12 +1,14 @@
 package GUI;
 
 import javafx.application.Application;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 
 import javafx.scene.image.Image;
 import javafx.scene.layout.*;
+import javafx.scene.paint.Paint;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import util.util;
@@ -54,6 +56,10 @@ public class Search extends Application{
 //        }
 
 
+
+        AnchorPane pane = new AnchorPane();
+        Scene scene = new Scene(pane, 600, 400);
+        scene.getStylesheets().add(getClass().getResource("MainStyle2.css").toExternalForm());
 
         Button btnBack = new Button("Back");
         btnBack.setMinSize(80, 40);
@@ -182,13 +188,10 @@ public class Search extends Application{
 
 
         sp.setContent(vb);
-        AnchorPane pane = new AnchorPane();
         pane.getChildren().add(btnBack);
         pane.getChildren().add(textField);
         pane.getChildren().add(btnSr);
         pane.getChildren().add(sp);
-
-        Scene scene = new Scene(pane, 600, 400);
 
         primaryStage.setTitle("Search Result");
         primaryStage.setScene(scene);

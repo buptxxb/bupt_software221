@@ -52,7 +52,6 @@ public class LoginController implements Initializable {
         String text = new GetJSON().gotStr(str);
         //1.构造一个json对象
         JSONObject obj = new JSONObject(text);
-
         String password = obj.getString("Password");
         String accNo = obj.getString("AccNo");
         util.GLOBALID = obj.getInt("ID");

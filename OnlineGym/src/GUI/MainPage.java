@@ -45,19 +45,17 @@ public class MainPage extends Application {
             }
             //OPen the server开启服务器
             while(true){
-                if (util.GLOBALID != 0) {
-                    Socket client= null;	//Accept the client and wait for the client to arrive(接受客户端，等待客户端到来)
-                    try {
-                        client = server.accept();
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                    System.out.println("The number of online member：" + clients.size());
-                    //Get what the client said and distribute a thread(获取客户端说的话,派发一个线程)
-                    ChatServerThread c = new ChatServerThread(client);
-                    clients.add(client);
-                    c.start();
+                Socket client= null;	//Accept the client and wait for the client to arrive(接受客户端，等待客户端到来)
+                try {
+                    client = server.accept();
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
+                System.out.println("The number of online member：" + clients.size());
+                //Get what the client said and distribute a thread(获取客户端说的话,派发一个线程)
+                ChatServerThread c = new ChatServerThread(client);
+                clients.add(client);
+                c.start();
             }
         }
     }
@@ -171,15 +169,6 @@ public class MainPage extends Application {
         }
     }
 
-    public void gotoHistory(){
-        try{
-            HistoryController History= (HistoryController) changeScene("History.fxml");
-            History.setApp(this);
-        } catch (Exception ex){
-            Logger.getLogger(MainPage.class.getName()).log(Level.SEVERE,null,ex);
-        }
-    }
-
     public void gotoCharge(){
         try{
             ChargeController Charge= (ChargeController) changeScene("Charge.fxml");
@@ -197,53 +186,55 @@ public class MainPage extends Application {
             Logger.getLogger(MainPage.class.getName()).log(Level.SEVERE,null,ex);
         }
     }
+
+    // TODO
     public void gotoChest(){
-        try{
-            ChestController Chest= (ChestController) changeScene("Chest.fxml");
-            Chest.setApp(this);
-        } catch (Exception ex){
-            Logger.getLogger(MainPage.class.getName()).log(Level.SEVERE,null,ex);
-        }
+//        try{
+//            ChestController Chest= (ChestController) changeScene("Chest.fxml");
+//            Chest.setApp(this);
+//        } catch (Exception ex){
+//            Logger.getLogger(MainPage.class.getName()).log(Level.SEVERE,null,ex);
+//        }
     }
     public void gotoShoulderArm(){
-        try{
-            ShoulderArmController ShoulderArm= (ShoulderArmController) changeScene("ShoulderArm.fxml");
-            ShoulderArm.setApp(this);
-        } catch (Exception ex){
-            Logger.getLogger(MainPage.class.getName()).log(Level.SEVERE,null,ex);
-        }
+//        try{
+//            ShoulderArmController ShoulderArm= (ShoulderArmController) changeScene("ShoulderArm.fxml");
+//            ShoulderArm.setApp(this);
+//        } catch (Exception ex){
+//            Logger.getLogger(MainPage.class.getName()).log(Level.SEVERE,null,ex);
+//        }
     }
     public void gotoBack(){
-        try{
-            BackController Back= (BackController) changeScene("Back.fxml");
-            Back.setApp(this);
-        } catch (Exception ex){
-            Logger.getLogger(MainPage.class.getName()).log(Level.SEVERE,null,ex);
-        }
+//        try{
+//            BackController Back= (BackController) changeScene("Back.fxml");
+//            Back.setApp(this);
+//        } catch (Exception ex){
+//            Logger.getLogger(MainPage.class.getName()).log(Level.SEVERE,null,ex);
+//        }
     }
     public void gotoHip(){
-        try{
-            HipController Hip= (HipController) changeScene("Hip.fxml");
-            Hip.setApp(this);
-        } catch (Exception ex){
-            Logger.getLogger(MainPage.class.getName()).log(Level.SEVERE,null,ex);
-        }
+//        try{
+//            HipController Hip= (HipController) changeScene("Hip.fxml");
+//            Hip.setApp(this);
+//        } catch (Exception ex){
+//            Logger.getLogger(MainPage.class.getName()).log(Level.SEVERE,null,ex);
+//        }
     }
     public void gotoLeg(){
-        try{
-            LegController Leg= (LegController) changeScene("Leg.fxml");
-            Leg.setApp(this);
-        } catch (Exception ex){
-            Logger.getLogger(MainPage.class.getName()).log(Level.SEVERE,null,ex);
-        }
+//        try{
+//            LegController Leg= (LegController) changeScene("Leg.fxml");
+//            Leg.setApp(this);
+//        } catch (Exception ex){
+//            Logger.getLogger(MainPage.class.getName()).log(Level.SEVERE,null,ex);
+//        }
     }
     public void gotoOther(){
-        try{
-            OtherController Other= (OtherController) changeScene("Other.fxml");
-            Other.setApp(this);
-        } catch (Exception ex){
-            Logger.getLogger(MainPage.class.getName()).log(Level.SEVERE,null,ex);
-        }
+//        try{
+//            OtherController Other= (OtherController) changeScene("Other.fxml");
+//            Other.setApp(this);
+//        } catch (Exception ex){
+//            Logger.getLogger(MainPage.class.getName()).log(Level.SEVERE,null,ex);
+//        }
     }
 
     public void userFinding(){
@@ -283,8 +274,6 @@ public class MainPage extends Application {
     public void accountRegister(){gotoRegister();}
 
     public void userFavorite(){  gotoFavorite(); }
-
-    public void userHistory(){ gotoHistory(); }
 
     public void userSearch(){
         gotoSearch();

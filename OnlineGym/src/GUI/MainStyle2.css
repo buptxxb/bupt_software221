@@ -1,0 +1,8 @@
+.root { -fx-background-image: url('/images/background.jpg');
+    -fx-background-size: stretch stretch; -fx-background-position: center center; }
+/*button类型选择器设置所有Button的背景色*/
+.scroll-pane {
+    -fx-background-color: black ;
+}
+
+.label { -fx-text-fill: snow; }
