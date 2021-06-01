@@ -27,7 +27,7 @@ public class UserInfoController implements Initializable {
 
     @FXML
     public void Course(ActionEvent event) {
-        application.userCourse();
+        application.userCourse_student();
     }
 
     @FXML
@@ -101,7 +101,6 @@ public class UserInfoController implements Initializable {
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
-        // TODO需要改用户对应的str
         String str = "src/data/user" + util.GLOBALID + ".json";
         User user = new GetJSON().createUser(str);
         id.setText(String.valueOf(user.id));

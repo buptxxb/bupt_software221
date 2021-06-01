@@ -32,9 +32,6 @@ public class Search extends Application{
         AtomicReference<String> searchContent= new AtomicReference<>(new String());
         searchContent.set(util.GLOBALSEARCH);
 
-        String sc= new String();
-        sc="bicep";
-
         String path="src/video";
         String[] namelist1=new String[50];
         namelist1=getNames(path);

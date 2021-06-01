@@ -32,7 +32,7 @@ public class FindingController implements Initializable {
 
     @FXML
     public void Course(ActionEvent event) {
-        application.userCourse();
+        application.userCourse_student();
     }
 
     @FXML
@@ -57,7 +57,7 @@ public class FindingController implements Initializable {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Prompt");
             alert.setHeaderText(null);
-            alert.setContentText("please check your input");
+            alert.setContentText("please login first");
             alert.showAndWait();
             return;
         }
@@ -70,7 +70,7 @@ public class FindingController implements Initializable {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Prompt");
             alert.setHeaderText(null);
-            alert.setContentText("please check your input");
+            alert.setContentText("please login first");
             alert.showAndWait();
             return;
         }
@@ -83,7 +83,7 @@ public class FindingController implements Initializable {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Prompt");
             alert.setHeaderText(null);
-            alert.setContentText("please check your input");
+            alert.setContentText("please login first");
             alert.showAndWait();
             return;
         }
@@ -96,7 +96,7 @@ public class FindingController implements Initializable {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Prompt");
             alert.setHeaderText(null);
-            alert.setContentText("please check your input");
+            alert.setContentText("please login first");
             alert.showAndWait();
             return;
         }
@@ -109,7 +109,7 @@ public class FindingController implements Initializable {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Prompt");
             alert.setHeaderText(null);
-            alert.setContentText("please check your input");
+            alert.setContentText("please login first");
             alert.showAndWait();
             return;
         }
@@ -122,7 +122,7 @@ public class FindingController implements Initializable {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Prompt");
             alert.setHeaderText(null);
-            alert.setContentText("please check your input");
+            alert.setContentText("please login first");
             alert.showAndWait();
             return;
         }
@@ -136,7 +136,7 @@ public class FindingController implements Initializable {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Prompt");
             alert.setHeaderText(null);
-            alert.setContentText("please input first!");
+            alert.setContentText("please login first");
             alert.showAndWait();
             return;
         }

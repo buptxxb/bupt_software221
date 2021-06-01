@@ -7,7 +7,10 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.TextField;
 import org.json.JSONObject;
 
+import java.awt.*;
+import java.net.URI;
 import java.net.URL;
+import util.util;
 import java.util.ResourceBundle;
 
 public class CourseController_student implements Initializable {
@@ -71,12 +74,31 @@ public class CourseController_student implements Initializable {
 
     @FXML
     public void Course(ActionEvent event) {
-        application.userCourse();
+        application.userCourse_student();
     }
 
     @FXML
     public void Chatting(ActionEvent event) {
         application.userChatting();
+    }
+
+    @FXML
+    public void Live(ActionEvent event) {
+        try {
+            String url = "https://www.dingtalk.com/";
+            //创建一个URI实例
+            URI uri = URI.create(url);
+            // getDesktop()返回当前浏览器上下文的 Desktop 实例。
+            //Desktop 类允许 Java 应用程序启动已在本机桌面上注册的关联应用程序，以处理 URI 或文件。
+            Desktop dp = Desktop.getDesktop();
+            //判断系统桌面是否支持要执行的功能
+            if(dp.isSupported(Desktop.Action.BROWSE)){
+                //启动默认浏览器来显示 URI
+                dp.browse(uri);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
@@ -87,10 +109,11 @@ public class CourseController_student implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        String str = "src/data/course"+".json";
+        String str = "src/data/course"+util.GLOBALID+".json";
         String text = new GetJSON().gotStr(str);
         //1.构造一个json对象
         JSONObject obj = new JSONObject(text);
+        // TODO
         Sun1.setText(String.valueOf(obj.getString("Sun1")));
         Sun2.setText(String.valueOf(obj.getString("Sun2")));
         Sun3.setText(String.valueOf(obj.getString("Sun3")));

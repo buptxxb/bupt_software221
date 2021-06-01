@@ -107,6 +107,15 @@ public class MainPage extends Application {
         }
     }
 
+    public void gotoCoachChatting(){
+        try{
+            CoachChattingController coachchatting=(CoachChattingController) changeScene("CoachChatting.fxml");
+            coachchatting.setApp(this);
+        } catch (Exception ex){
+            Logger.getLogger(MainPage.class.getName()).log(Level.SEVERE,null,ex);
+        }
+    }
+
     public void gotoCoachInfo(){
         if (util.GLOBALID == 0) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -249,55 +258,7 @@ public class MainPage extends Application {
         }
     }
 
-    // TODO
-    public void gotoChest(){
-//        try{
-//            ChestController Chest= (ChestController) changeScene("Chest.fxml");
-//            Chest.setApp(this);
-//        } catch (Exception ex){
-//            Logger.getLogger(MainPage.class.getName()).log(Level.SEVERE,null,ex);
-//        }
-    }
-    public void gotoShoulderArm(){
-//        try{
-//            ShoulderArmController ShoulderArm= (ShoulderArmController) changeScene("ShoulderArm.fxml");
-//            ShoulderArm.setApp(this);
-//        } catch (Exception ex){
-//            Logger.getLogger(MainPage.class.getName()).log(Level.SEVERE,null,ex);
-//        }
-    }
-    public void gotoBack(){
-//        try{
-//            BackController Back= (BackController) changeScene("Back.fxml");
-//            Back.setApp(this);
-//        } catch (Exception ex){
-//            Logger.getLogger(MainPage.class.getName()).log(Level.SEVERE,null,ex);
-//        }
-    }
-    public void gotoHip(){
-//        try{
-//            HipController Hip= (HipController) changeScene("Hip.fxml");
-//            Hip.setApp(this);
-//        } catch (Exception ex){
-//            Logger.getLogger(MainPage.class.getName()).log(Level.SEVERE,null,ex);
-//        }
-    }
-    public void gotoLeg(){
-//        try{
-//            LegController Leg= (LegController) changeScene("Leg.fxml");
-//            Leg.setApp(this);
-//        } catch (Exception ex){
-//            Logger.getLogger(MainPage.class.getName()).log(Level.SEVERE,null,ex);
-//        }
-    }
-    public void gotoOther(){
-//        try{
-//            OtherController Other= (OtherController) changeScene("Other.fxml");
-//            Other.setApp(this);
-//        } catch (Exception ex){
-//            Logger.getLogger(MainPage.class.getName()).log(Level.SEVERE,null,ex);
-//        }
-    }
+
 
     public void userFinding(){
         gotoFinding();
@@ -317,6 +278,10 @@ public class MainPage extends Application {
 
     public void userChatting(){
         gotoChatting();
+    }
+
+    public void coachChatting(){
+        gotoCoachChatting();
     }
 
     public void userUserInfo(){
@@ -349,35 +314,11 @@ public class MainPage extends Application {
 
     public void accountRegister(){gotoRegister();}
 
-    public void userFavorite(){  gotoFavorite(); }
-
     public void userSearch(){
         gotoSearch();
     }
 
-    public void userChest(){
-        gotoChest();
-    }
 
-    public void userShoulderArm(){
-        gotoShoulderArm();
-    }
-
-    public void userBack(){
-        gotoBack();
-    }
-
-    public void userHip(){
-        gotoHip();
-    }
-
-    public void userLeg(){
-        gotoLeg();
-    }
-
-    public void userOther(){
-        gotoOther();
-    }
 
     private Initializable changeScene(String fxml)throws Exception{
         FXMLLoader loader= new FXMLLoader();
@@ -406,7 +347,7 @@ class ChatServerThread extends Thread{
 
     public ChatServerThread(Socket socket) {
 //        ip = socket.getInetAddress().getHostAddress();
-        ip = "user" + util.GLOBALID;
+        ip = "ip" + util.GLOBALID;
         this.socket = socket;
     }
     @Override

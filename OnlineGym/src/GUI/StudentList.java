@@ -1,5 +1,6 @@
 package GUI;
 
+import data_handle.GetJSON;
 import javafx.application.Application;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -10,6 +11,8 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
+import org.json.JSONObject;
+import util.util;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -25,17 +28,18 @@ public class StudentList extends Application{
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-
-//        AtomicReference<String> searchContent= new AtomicReference<>(new String());
-//        searchContent.set(util.GLOBALSEARCH);
-
-        // TODO
-        String[] student=new String[]{"lwd", "txy","wzl"};
-        for( int i=0;i<student.length;i++){
-            System.out.println(student[i]);
+        String fileName = "src/data/trainer" + util.GLOBALID + ".json";
+        String jsonStr = new GetJSON().gotStr(fileName);
+        JSONObject json = new JSONObject(jsonStr);
+        int len = json.getJSONArray("student").length();
+        String[] student = new String[len];
+        for (int i = 0; i < len; i++) {
+            student[i] =  json.getJSONArray("student").getString(i);
         }
-
-
+//        String[] student=new String[]{"lwd", "txy","wzl"};
+//        for( int i=0;i<student.length;i++){
+//            System.out.println(student[i]);
+//        }
 
 
         AnchorPane pane = new AnchorPane();

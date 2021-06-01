@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.ChargeController" stylesheets="@MainStyle.css">
+   <children>
+      <Button layoutX="272.0" layoutY="293.0" mnemonicParsing="false" onAction="#ChargeM" text="Charge" />
+      <TextField fx:id="Amount" layoutX="281.0" layoutY="230.0" prefHeight="23.0" prefWidth="137.0" />
+      <Button layoutX="146.0" layoutY="230.0" mnemonicParsing="false" onAction="#Custom" text="Custom amount" />
+      <Button layoutX="103.0" layoutY="163.0" mnemonicParsing="false" onAction="#Hundred1" text="100" />
+      <Button layoutX="272.0" layoutY="163.0" mnemonicParsing="false" onAction="#Hundred2" text="200" />
+      <Button layoutX="437.0" layoutY="163.0" mnemonicParsing="false" onAction="#Hundred5" text="500" />
+      <Label layoutX="184.0" layoutY="14.0" text="Here is the charge amount interface. " />
+      <Label layoutX="92.0" layoutY="36.0" text="You can choose 100 yuan, 200 yuan, 500 yuan and user-defined amount." />
+      <Label layoutX="92.0" layoutY="58.0" text="After you input the amount you defined, please click Custom amount button" />
+      <Label layoutX="200.0" layoutY="81.0" text="Now there is a discount activity!" />
+      <Label layoutX="81.0" layoutY="105.0" text="You can get 110% of the amount by single charge of 200 yuan or above! " />
+      <Label layoutX="87.0" layoutY="131.0" text="You can get 120% of the amount by single recharge of 500 yuan or above!" />
+      <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#Back" text="Back" />
+   </children>
+</AnchorPane>

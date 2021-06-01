@@ -52,7 +52,7 @@ public class Category extends Application{
         String[] namelist2 = new String[arrList.size()];
         namelist2 = arrList.toArray(namelist2);
 
-        ArrayList<String> list = new ArrayList();
+        ArrayList<String> list = new ArrayList<>();
         for (String videoName : namelist2) {
             String fileName = "src/data/video_data/" + videoName + ".json";
             String jsonStr = new GetJSON().gotStr(fileName);

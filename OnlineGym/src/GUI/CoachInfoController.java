@@ -5,6 +5,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import people.Trainer;
 import util.util;
 
@@ -32,7 +33,7 @@ public class CoachInfoController implements Initializable {
 
     @FXML
     public void Chatting(ActionEvent event) {
-        application.userChatting();
+        application.coachChatting();
     }
 
     @FXML
@@ -46,8 +47,9 @@ public class CoachInfoController implements Initializable {
     }
 
     @FXML
-    public void List(ActionEvent event) {
-
+    public void List(ActionEvent event) throws Exception {
+        StudentList studentList=new StudentList();
+        studentList.showWindow();
     }
 
     @FXML

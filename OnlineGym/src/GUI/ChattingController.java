@@ -27,7 +27,7 @@ public class ChattingController implements Initializable {
 
     @FXML
     public void Course(ActionEvent event) {
-        application.userCourse();
+        application.userCourse_student();
     }
 
     @FXML

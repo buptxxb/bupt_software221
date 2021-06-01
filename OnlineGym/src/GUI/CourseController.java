@@ -16,9 +16,11 @@ import scheduletable.scheduletable;
 import javafx.scene.control.TableColumn.CellEditEvent;
 import util.util;
 
+import java.awt.*;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.net.URI;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -74,12 +76,90 @@ public class CourseController implements Initializable {
     @FXML private TextField Sat5;
     @FXML private TextField Sat6;
 
+    @FXML private TextField studentID;
+
     public void setApp(MainPage application){
         this.application = application;
     }
+
+    @FXML
+    public void Live(ActionEvent event) {
+        try {
+            String url = "https://www.dingtalk.com/";
+             //创建一个URI实例
+             URI uri = URI.create(url);
+             // getDesktop()返回当前浏览器上下文的 Desktop 实例。
+             //Desktop 类允许 Java 应用程序启动已在本机桌面上注册的关联应用程序，以处理 URI 或文件。
+             Desktop dp = Desktop.getDesktop();
+             //判断系统桌面是否支持要执行的功能
+             if(dp.isSupported(Desktop.Action.BROWSE)){
+             //启动默认浏览器来显示 URI
+             dp.browse(uri);
+       }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void Check(ActionEvent event){
+        String str = "src/data/course"+studentID.getText()+".json";
+        String text = new GetJSON().gotStr(str);
+        //1.构造一个json对象
+        JSONObject obj = new JSONObject(text);
+        // TODO
+        Sun1.setText(String.valueOf(obj.getString("Sun1")));
+        Sun2.setText(String.valueOf(obj.getString("Sun2")));
+        Sun3.setText(String.valueOf(obj.getString("Sun3")));
+        Sun4.setText(String.valueOf(obj.getString("Sun4")));
+        Sun5.setText(String.valueOf(obj.getString("Sun5")));
+        Sun6.setText(String.valueOf(obj.getString("Sun6")));
+
+        Mon1.setText(String.valueOf(obj.getString("Mon1")));
+        Mon2.setText(String.valueOf(obj.getString("Mon2")));
+        Mon3.setText(String.valueOf(obj.getString("Mon3")));
+        Mon4.setText(String.valueOf(obj.getString("Mon4")));
+        Mon5.setText(String.valueOf(obj.getString("Mon5")));
+        Mon6.setText(String.valueOf(obj.getString("Mon6")));
+
+        Tue1.setText(String.valueOf(obj.getString("Tue1")));
+        Tue2.setText(String.valueOf(obj.getString("Tue2")));
+        Tue3.setText(String.valueOf(obj.getString("Tue3")));
+        Tue4.setText(String.valueOf(obj.getString("Tue4")));
+        Tue5.setText(String.valueOf(obj.getString("Tue5")));
+        Tue6.setText(String.valueOf(obj.getString("Tue6")));
+
+        Wed1.setText(String.valueOf(obj.getString("Wed1")));
+        Wed2.setText(String.valueOf(obj.getString("Wed2")));
+        Wed3.setText(String.valueOf(obj.getString("Wed3")));
+        Wed4.setText(String.valueOf(obj.getString("Wed4")));
+        Wed5.setText(String.valueOf(obj.getString("Wed5")));
+        Wed6.setText(String.valueOf(obj.getString("Wed6")));
+
+        Thu1.setText(String.valueOf(obj.getString("Thu1")));
+        Thu2.setText(String.valueOf(obj.getString("Thu2")));
+        Thu3.setText(String.valueOf(obj.getString("Thu3")));
+        Thu4.setText(String.valueOf(obj.getString("Thu4")));
+        Thu5.setText(String.valueOf(obj.getString("Thu5")));
+        Thu6.setText(String.valueOf(obj.getString("Thu6")));
+
+        Fri1.setText(String.valueOf(obj.getString("Fri1")));
+        Fri2.setText(String.valueOf(obj.getString("Fri2")));
+        Fri3.setText(String.valueOf(obj.getString("Fri3")));
+        Fri4.setText(String.valueOf(obj.getString("Fri4")));
+        Fri5.setText(String.valueOf(obj.getString("Fri5")));
+        Fri6.setText(String.valueOf(obj.getString("Fri6")));
+
+        Sat1.setText(String.valueOf(obj.getString("Sat1")));
+        Sat2.setText(String.valueOf(obj.getString("Sat2")));
+        Sat3.setText(String.valueOf(obj.getString("Sat3")));
+        Sat4.setText(String.valueOf(obj.getString("Sat4")));
+        Sat5.setText(String.valueOf(obj.getString("Sat5")));
+        Sat6.setText(String.valueOf(obj.getString("Sat6")));
+    }
+
     @FXML
     public void Update(ActionEvent event) {
-        String str = "src/data/course.json";
+        String str = "src/data/course"+studentID.getText()+".json";
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("Sun1", Sun1.getText());
         jsonObject.put("Sun2", Sun2.getText());
@@ -160,22 +240,23 @@ public class CourseController implements Initializable {
 
     @FXML
     public void Chatting(ActionEvent event) {
-        application.userChatting();
+        application.coachChatting();
     }
 
     @FXML
     public void UserInfo(ActionEvent event) {
-        application.userUserInfo();
+        application.userCoachInfo();
     }
+
 
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        String str = "src/data/course"+".json";
+        String str = "src/data/course"+studentID.getText()+".json";
         String text = new GetJSON().gotStr(str);
         //1.构造一个json对象
         JSONObject obj = new JSONObject(text);
-
+        // TODO
         Sun1.setText(String.valueOf(obj.getString("Sun1")));
         Sun2.setText(String.valueOf(obj.getString("Sun2")));
         Sun3.setText(String.valueOf(obj.getString("Sun3")));
