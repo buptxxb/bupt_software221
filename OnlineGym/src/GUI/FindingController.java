@@ -1,9 +1,11 @@
 package GUI;
 
+import data_handle.GetJSON;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
+import javafx.scene.control.TextField;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
@@ -16,6 +18,7 @@ import java.util.ResourceBundle;
 public class FindingController implements Initializable {
 
     private MainPage application;
+    @FXML private TextField search;
 
     public void setApp(MainPage application){
         this.application = application;
@@ -47,10 +50,6 @@ public class FindingController implements Initializable {
         application.accountLogin();
     }
 
-    @FXML
-    public void Search(ActionEvent event) {
-        application.userSearch();
-    }
 
     @FXML
     public void Chest(ActionEvent event) {
@@ -75,6 +74,26 @@ public class FindingController implements Initializable {
     @FXML
     public void Other(ActionEvent event) {
         application.userOther();
+    }
+
+    @FXML
+    public void Search (ActionEvent event) throws Exception {
+        if (search.getText().isEmpty() ) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Prompt");
+            alert.setHeaderText(null);
+            alert.setContentText("please input first!");
+            alert.showAndWait();
+            return;
+        }
+        util.GLOBALSEARCH = search.getText();
+        Search search=new Search();
+        search.showWindow();
+    }
+
+    @FXML
+    private void CLEAR_M(ActionEvent event) {
+        search.setText(null);
     }
 
     @Override

@@ -56,16 +56,16 @@ public class Media extends Application{
         });
 
         final int[] like = {0};
-        Button btnLike = new Button("Like"+ like[0]);
+        Button btnLike = new Button("Like "+ like[0]);
         btnLike.setOnAction(e->{
-            if (btnLike.getText().equals("Like"+ like[0])){
+            if (btnLike.getText().equals("Like "+ like[0])){
                 like[0] += 1;
-                btnLike.setText("Liked"+ like[0]);
+                btnLike.setText("Liked "+ like[0]);
 
             }
             else{
-                btnLike.setText("Liked");
-                btnLike.setText("Like");
+                like[0] -= 1;
+                btnLike.setText("Like "+ like[0]);
             }
         });
 

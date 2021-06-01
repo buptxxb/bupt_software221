@@ -26,6 +26,5 @@
       <Button layoutX="38.0" layoutY="276.0" mnemonicParsing="false" onAction="#InfoModi" prefHeight="28.0" prefWidth="127.0" text="Modify Infomation" />
       <Button layoutX="214.0" layoutY="276.0" mnemonicParsing="false" onAction="#PasswordModi" prefHeight="28.0" prefWidth="127.0" text=" Modify Password" />
       <Button layoutX="432.0" layoutY="85.0" mnemonicParsing="false" onAction="#Favorite" prefHeight="48.0" prefWidth="127.0" text="Favorite" />
-      <Button layoutX="432.0" layoutY="195.0" mnemonicParsing="false" onAction="#History" prefHeight="48.0" prefWidth="127.0" text="History" />
    </children>
 </AnchorPane>

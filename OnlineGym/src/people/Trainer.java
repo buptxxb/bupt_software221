@@ -32,7 +32,7 @@ public class Trainer extends People{
 
     public void addVideo(String videoName, String category, String ResourcePath) {
         String fileName = "src/video/" + videoName + ".mp4";
-        Video video = new Video(fileName, category, 0);
+        Video video = new Video(videoName, category, 0);
         InputStream input = null;
         OutputStream output = null;
         try {
