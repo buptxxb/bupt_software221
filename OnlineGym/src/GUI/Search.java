@@ -59,7 +59,7 @@ public class Search extends Application{
 
         AnchorPane pane = new AnchorPane();
         Scene scene = new Scene(pane, 600, 400);
-        scene.getStylesheets().add(getClass().getResource("MainStyle2.css").toExternalForm());
+        scene.getStylesheets().add(getClass().getResource("MainStyle3.css").toExternalForm());
 
         Button btnBack = new Button("Back");
         btnBack.setMinSize(80, 40);

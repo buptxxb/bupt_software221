@@ -27,6 +27,7 @@ public class Favorite extends Application{
     public void start(Stage primaryStage) throws Exception {
         String favoriteName;
         favoriteName = "bicep";
+        // TODO
 
         String path="src/video";
         String[] namelist1=new String[50];

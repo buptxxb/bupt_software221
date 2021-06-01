@@ -1,5 +1,6 @@
 package people;
 
+import data_handle.CreateJSON;
 import org.json.JSONObject;
 
 import java.io.*;
@@ -28,6 +29,11 @@ public class Trainer extends People{
         jsonObject.put("weight",trainer.weight);
         jsonObject.put("student",trainer.student);
         return jsonObject.toString();
+    }
+
+    public void updateInfo(String filename) {
+        String context = class2JSON(this);
+        new CreateJSON().createJSON(filename, context);
     }
 
     public void addVideo(String videoName, String category, String ResourcePath) {

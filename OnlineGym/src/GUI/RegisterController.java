@@ -26,7 +26,7 @@ public class RegisterController implements Initializable {
     @FXML private PasswordField Password;
     @FXML private TextField ID;
 
-    public void Return(ActionEvent event){application.accountLogin();}
+    public void Return(ActionEvent event){application.accountLoginStudent();}
 
     public void Finding(ActionEvent event){application.userFinding();}
 

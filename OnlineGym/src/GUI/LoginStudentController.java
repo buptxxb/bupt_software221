@@ -8,15 +8,14 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import org.json.JSONObject;
-import people.Account;
-import people.User;
 import util.util;
 
-import java.io.*;
+import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class LoginController implements Initializable {
+public class LoginStudentController implements Initializable {
 
     @FXML private TextField AccNo;
     @FXML private PasswordField Password;
@@ -52,6 +51,7 @@ public class LoginController implements Initializable {
         String text = new GetJSON().gotStr(str);
         //1.构造一个json对象
         JSONObject obj = new JSONObject(text);
+        // TODO
         String password = obj.getString("Password");
         String accNo = obj.getString("AccNo");
         util.GLOBALID = obj.getInt("ID");
@@ -59,7 +59,7 @@ public class LoginController implements Initializable {
 
 
         if ((accNo).equals(AccNo.getText()) && ((password).equals(Password.getText()))) {
-            application.userFinding();
+            application.userUserInfo();
         } else {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Prompt");
@@ -71,6 +71,6 @@ public class LoginController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+     util.GLOBALTYPE = "Student";
     }
 }

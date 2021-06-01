@@ -67,7 +67,6 @@ public class Media extends Application{
         int likeCount = json.getInt("likeCount");
         final int[] like = {likeCount};
 
-//        String jsonStr1 = new GetJSON().gotStr("src/data/user" + util.GLOBALID + ".json");
         User user = new GetJSON().createUser("src/data/user" + util.GLOBALID + ".json");
 
         Button btnLike = new Button("Like "+ like[0]);

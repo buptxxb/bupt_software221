@@ -107,6 +107,23 @@ public class MainPage extends Application {
         }
     }
 
+    public void gotoCoachInfo(){
+        if (util.GLOBALID == 0) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Prompt");
+            alert.setHeaderText(null);
+            alert.setContentText("please login first");
+            alert.showAndWait();
+            return;
+        }
+        try{
+            CoachInfoController coachinfo=(CoachInfoController) changeScene("CoachInfo.fxml");
+            coachinfo.setApp(this);
+        } catch (Exception ex){
+            Logger.getLogger(MainPage.class.getName()).log(Level.SEVERE,null,ex);
+        }
+    }
+
     public void gotoUserInfo(){
         if (util.GLOBALID == 0) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -133,10 +150,28 @@ public class MainPage extends Application {
         }
     }
 
+    public void gotoInfoCoachModi(){
+        try{
+            InfoCoachModiController coachinfomodi=(InfoCoachModiController) changeScene("InfoCoachModi.fxml");
+            coachinfomodi.setApp(this);
+        } catch (Exception ex){
+            Logger.getLogger(MainPage.class.getName()).log(Level.SEVERE,null,ex);
+        }
+    }
+
     public void gotoPasswordModi(){
         try{
             PasswordModiController passwordmodi=(PasswordModiController) changeScene("PasswordModi.fxml");
             passwordmodi.setApp(this);
+        } catch (Exception ex){
+            Logger.getLogger(MainPage.class.getName()).log(Level.SEVERE,null,ex);
+        }
+    }
+
+    public void gotoPasswordCoachModi(){
+        try{
+            PasswordModiCoachController passwordmodicoach=(PasswordModiCoachController) changeScene("PasswordModiCoach.fxml");
+            passwordmodicoach.setApp(this);
         } catch (Exception ex){
             Logger.getLogger(MainPage.class.getName()).log(Level.SEVERE,null,ex);
         }
@@ -151,10 +186,28 @@ public class MainPage extends Application {
         }
     }
 
-    public void gotoLogin(){
+    public void gotoLoginStudent(){
         try{
-            LoginController Login= (LoginController) changeScene("Login.fxml");
-            Login.setApp(this);
+            LoginStudentController LoginStudent= (LoginStudentController) changeScene("LoginStudent.fxml");
+            LoginStudent.setApp(this);
+        } catch (Exception ex){
+            Logger.getLogger(MainPage.class.getName()).log(Level.SEVERE,null,ex);
+        }
+    }
+
+    public void gotoLoginCoach(){
+        try{
+            LoginCoachController LoginCoach= (LoginCoachController) changeScene("LoginCoach.fxml");
+            LoginCoach.setApp(this);
+        } catch (Exception ex){
+            Logger.getLogger(MainPage.class.getName()).log(Level.SEVERE,null,ex);
+        }
+    }
+
+    public void gotoSelectLogin(){
+        try{
+            SelectLoginController SelectLogin= (SelectLoginController) changeScene("SelectLogin.fxml");
+            SelectLogin.setApp(this);
         } catch (Exception ex){
             Logger.getLogger(MainPage.class.getName()).log(Level.SEVERE,null,ex);
         }
@@ -182,6 +235,15 @@ public class MainPage extends Application {
         try{
             Search search= new Search();
             search.showWindow();
+        } catch (Exception ex){
+            Logger.getLogger(MainPage.class.getName()).log(Level.SEVERE,null,ex);
+        }
+    }
+
+    public void gotoChoose(){
+        try{
+            ChooseController Choose= (ChooseController) changeScene("Choose.fxml");
+            Choose.setApp(this);
         } catch (Exception ex){
             Logger.getLogger(MainPage.class.getName()).log(Level.SEVERE,null,ex);
         }
@@ -261,6 +323,8 @@ public class MainPage extends Application {
         gotoUserInfo();
     }
 
+    public void userCoachInfo(){gotoCoachInfo();}
+
     public void userInfoModi(){
         gotoInfoModi();
     }
@@ -269,7 +333,19 @@ public class MainPage extends Application {
         gotoPasswordModi();
     }
 
-    public void accountLogin(){gotoLogin();}
+    public void userInfoCoachModi(){
+        gotoInfoCoachModi();
+    }
+
+    public void userPasswordCoachModi(){
+        gotoPasswordCoachModi();
+    }
+
+    public void accountLoginStudent(){gotoLoginStudent();}
+
+    public void accountLoginCoach(){gotoLoginCoach();}
+
+    public void accountSelectLogin(){gotoSelectLogin();}
 
     public void accountRegister(){gotoRegister();}
 

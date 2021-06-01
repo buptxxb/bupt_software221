@@ -71,13 +71,7 @@ public class GetJSON {
     public Trainer createTrainer(String fileName) {
         String jsonStr = gotStr(fileName);
         JSONObject json = new JSONObject(jsonStr);
-        int len = json.getJSONArray("classID").length();
-        // TODO 删掉？
-        int[] tmp = new int[len];
-        for (int i = 0; i < len; i++) {
-            tmp[i] =  json.getJSONArray("classID").getInt(i);
-        }
-        int len2 = json.getJSONArray("student").length();
+        int len = json.getJSONArray("student").length();
         String[] tmp2 = new String[len];
         for (int i = 0; i < len; i++) {
             tmp2[i] =  json.getJSONArray("student").getString(i);
