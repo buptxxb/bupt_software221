@@ -58,7 +58,7 @@ public class ChatUI extends Frame{
 									textArea.setCaretPosition(textArea.getText().length());
 
 								} catch (Exception e) {
-									// TODO: handle exception
+									e.printStackTrace();
 								}
 							}
 						}
@@ -96,13 +96,13 @@ public class ChatUI extends Frame{
 	 */
 	private void initialize() {
 		try {
-			//½¨Á¢Óë·þÎñÆ÷Á´½Ó
-			// ÖªµÀ·þÎñÆ÷µÄµØÖ·£¬¶Ë¿Ú
+			//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+			// Öªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Äµï¿½Ö·ï¿½ï¿½ï¿½Ë¿ï¿½
 			socket = new Socket(serverAddress, 8000);
-			//Ïò·þÎñÆ÷´ò¸öÕÐºô
+			//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ðºï¿½
 			out = socket.getOutputStream();
 		} catch (Exception e) {
-			// TODO: handle exception
+			e.printStackTrace();
 		}
 
 		frame = new JFrame();
@@ -135,7 +135,7 @@ public class ChatUI extends Frame{
 		
 		JButton btnNewButton = new JButton("Send");
 		btnNewButton.addActionListener(e ->{
-				// µã»÷ÁË·¢ËÍ°´Å¥£¬¿Í»§¶Ë·¢ËÍÄÚÈÝµ½·þÎñÆ÷
+				// ï¿½ï¿½ï¿½ï¿½Ë·ï¿½ï¿½Í°ï¿½Å¥ï¿½ï¿½ï¿½Í»ï¿½ï¿½Ë·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ýµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 				SendText();
 			}
 		);
@@ -146,9 +146,9 @@ public class ChatUI extends Frame{
 		textArea = new JTextArea();
 		textArea.setEditable(false);
 		textArea.setBounds(47, 74, 627, 374);
-		textArea.setLineWrap(true);        //¼¤»î×Ô¶¯»»ÐÐ¹¦ÄÜ 
-		textArea.setWrapStyleWord(true);            // ¼¤»î¶ÏÐÐ²»¶Ï×Ö¹¦ÄÜ
-		JScrollPane scrollPane = new JScrollPane(textArea);//Ìí¼Ó¹ö¶¯Ìõ
+		textArea.setLineWrap(true);        //ï¿½ï¿½ï¿½ï¿½ï¿½Ô¶ï¿½ï¿½ï¿½ï¿½Ð¹ï¿½ï¿½ï¿½ 
+		textArea.setWrapStyleWord(true);            // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð²ï¿½ï¿½ï¿½ï¿½Ö¹ï¿½ï¿½ï¿½
+		JScrollPane scrollPane = new JScrollPane(textArea);//ï¿½ï¿½Ó¹ï¿½ï¿½ï¿½ï¿½ï¿½
 		scrollPane.setBounds(47, 74, 627, 374);
 		frame.getContentPane().add(scrollPane);
 		
@@ -197,7 +197,7 @@ public class ChatUI extends Frame{
 
 
 	/*
-	 * ·¢ËÍÏûÏ¢
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
 	 */
 	void SendText()
 	{

@@ -359,12 +359,11 @@ class ChatServerThread extends Thread{
                 }
             }
         } catch (Exception e) {
-            // TODO: handle exception
+            e.printStackTrace();
         }
         try {
             socket.close();
         } catch (IOException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
     }
@@ -405,7 +404,6 @@ class ChatServerThread extends Thread{
                         MainPage.clients.get(i).getOutputStream().write(text.getBytes());
                         MainPage.clients.get(i).getOutputStream().flush();
                     } catch (IOException e) {
-                        // TODO Auto-generated catch block
                         e.printStackTrace();
                     }
                     socket.getOutputStream().write("".getBytes());
@@ -429,7 +427,6 @@ class ChatServerThread extends Thread{
                     MainPage.clients.get(i).getOutputStream().write(text.getBytes());
                     MainPage.clients.get(i).getOutputStream().flush();
                 } catch (IOException e) {
-                    // TODO Auto-generated catch block
                     e.printStackTrace();
                 }
             }

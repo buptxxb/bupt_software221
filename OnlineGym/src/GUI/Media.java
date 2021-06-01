@@ -1,5 +1,7 @@
 package GUI;
 
+import data_handle.CreateJSON;
+import data_handle.GetJSON;
 import javafx.application.Application;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -12,6 +14,9 @@ import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import org.json.JSONObject;
+import people.User;
+import util.util;
 
 public class Media extends Application{
 
@@ -23,6 +28,7 @@ public class Media extends Application{
     private java.io.File file = new java.io.File(path);
     private javafx.scene.media.Media media = new javafx.scene.media.Media(file.toURI().toString());
     private MediaPlayer mplayer = new MediaPlayer(media);
+    int temp = 0;
 
     public void SetVideo(String name){
         videoName=name;
@@ -55,17 +61,28 @@ public class Media extends Application{
             }
         });
 
-        final int[] like = {0};
+        // TODO
+        String jsonStr = new GetJSON().gotStr("src/data/video_data/" + videoName + ".json");
+        JSONObject json = new JSONObject(jsonStr);
+        int likeCount = json.getInt("likeCount");
+        final int[] like = {likeCount};
+
+//        String jsonStr1 = new GetJSON().gotStr("src/data/user" + util.GLOBALID + ".json");
+        User user = new GetJSON().createUser("src/data/user" + util.GLOBALID + ".json");
+
         Button btnLike = new Button("Like "+ like[0]);
         btnLike.setOnAction(e->{
             if (btnLike.getText().equals("Like "+ like[0])){
                 like[0] += 1;
                 btnLike.setText("Liked "+ like[0]);
-
+                temp = like[0];
+                user.like(videoName);
             }
             else{
                 like[0] -= 1;
                 btnLike.setText("Like "+ like[0]);
+                temp = like[0];
+                user.removeLike(videoName);
             }
         });
 
@@ -134,6 +151,12 @@ public class Media extends Application{
     }
 
     private void closerFunction(){
+        String fileName = "src/data/video_data/" + videoName + ".json";
+        String jsonStr = new GetJSON().gotStr(fileName);
+        JSONObject json = new JSONObject(jsonStr);
+        json.put("likeCount", temp);
+        String context = json.toString();
+        new CreateJSON().createJSON(fileName, context);
         mplayer.stop();
         stage.close();
     }

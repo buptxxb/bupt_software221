@@ -25,19 +25,15 @@ public class Favorite extends Application{
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-
-//        AtomicReference<String> searchContent= new AtomicReference<>(new String());
-//        searchContent.set(util.GLOBALSEARCH);
-
-        String favoriteName= new String();
-        favoriteName="bicep";
+        String favoriteName;
+        favoriteName = "bicep";
 
         String path="src/video";
         String[] namelist1=new String[50];
         namelist1=getNames(path);
         List<String> list1= Arrays.asList(namelist1);
-        List<String> arrList = new ArrayList<String>(list1);
-        List<String> nulllist = new ArrayList<String>();
+        List<String> arrList = new ArrayList<>(list1);
+        List<String> nulllist = new ArrayList<>();
         nulllist.add(null);
         arrList.remove("");
         arrList.remove("init");

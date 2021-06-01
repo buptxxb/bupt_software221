@@ -20,7 +20,7 @@ public class Video {
         this.likeCount = likeCount;
     }
 
-    // update user's Information
+    // update Information
     public void updateInfo(String filename) {
         String context = class2JSON();
         new CreateJSON().createJSON(filename, context);

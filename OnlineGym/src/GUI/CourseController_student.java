@@ -91,7 +91,7 @@ public class CourseController_student implements Initializable {
         String text = new GetJSON().gotStr(str);
         //1.构造一个json对象
         JSONObject obj = new JSONObject(text);
-        // TODO
+
         Sun1.setText(String.valueOf(obj.getString("Sun1")));
         Sun2.setText(String.valueOf(obj.getString("Sun2")));
         Sun3.setText(String.valueOf(obj.getString("Sun3")));

@@ -40,8 +40,6 @@ public class RegisterController implements Initializable {
             return;
         }
 
-
-        // TODO
         String str = "src/data/account"+ ID.getText() +".json";
         File file = new File(str);
         if (file.exists()) {

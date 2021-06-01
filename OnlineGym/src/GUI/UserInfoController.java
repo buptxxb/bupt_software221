@@ -111,7 +111,6 @@ public class UserInfoController implements Initializable {
         birthday.setText(String.valueOf(user.birthday));
         height.setText(String.valueOf(user.height));
         weight.setText(String.valueOf(user.weight));
-        //TODO
         money.setText((String.valueOf(user.money)));
     }
 

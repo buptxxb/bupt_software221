@@ -47,7 +47,7 @@ public class GetJSON {
         return jsonStr;
     }
 
-    public List<Integer> createLike(String fileName, int id) {
+    public List<String> createLike(String fileName, String videoName) {
         File file = new File(fileName);
         String context;
         if (!file.exists()) {
@@ -56,12 +56,12 @@ public class GetJSON {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            context = "{\"id\":"+ id +",\"video\":[]}";
+            context = "{\"videoName\":\""+ videoName +"\",\"video\":[]}";
         } else {
             context = new GetJSON().gotStr(fileName);
         }
         JSONObject json = new JSONObject(context);
-        List<Integer> list = (List<Integer>)(List)json.getJSONArray("video").toList();
+        List<String> list = (List<String>)(List)json.getJSONArray("video").toList();
 
         return list;
     }
